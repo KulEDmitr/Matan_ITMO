@@ -1,0 +1,545 @@
+\documentclass{article}
+\usepackage{scrextend}
+\usepackage[english, russian]{babel}
+\title{Математический анализ\\*100 интегралов\\*ФИТиП ИС\\*1 курс 2 семестр}
+\date{06.02.2020 - 27.02.2020}
+\author{Кулешова Екатерина Дмитриевна \\* M3103}
+
+\usepackage{amsmath, latexsym, commath}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\newcommand{\dreplace}[2]{\textrm{Замена: }\left[
+	\begin{array}{c} #1\\#2
+	\end{array}\right]}
+
+\newcommand{\treplace}[3]{\textrm{Замена: }\left[
+	\begin{array}{c} #1\\#2\\#3
+	\end{array}\right]}
+
+\newcommand{\freplace}[4]{\textrm{Интегрируем по частям: }\left[
+	\begin{array}{r|l} #1 & #2 \\ #3 & #4
+	\end{array}\right]}
+
+\renewcommand{\tan}{tg}
+\renewcommand{\cot}{ctg}
+\renewcommand{\arctan}{arctg}
+
+
+\begin{document}
+	\maketitle
+	\newpage
+	\section*{1. \ $\int\frac{1}{\sqrt{2x-1}} \dif x = (*)$} 
+		\begin{multline*}
+			\treplace{t = 2x - 1}{ x = \dfrac{t + 1}{2}}{\dif x = \dfrac{\dif t}{2}}=>(*) = \dfrac{1}{2}\int\dfrac{\dif t}{\sqrt{t}} =\dfrac{1}{2}(2\sqrt{t} + C) = \sqrt{t} + C
+		\end{multline*}
+			
+	\section*{2. \ $\int\frac{1}{(x + 1)^2} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = x + 1}{ x = t - 1}{\dif x = \dif t}=>(*) = \int\dfrac{\dif t}{t^2} = -\dfrac 1 t + C
+		\end{multline*}
+		
+	\section*{3. \ $\int 5^{2x - 1} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 2x - 1}{x = \dfrac{t + 1} 2}{\dif x = \dfrac{\dif t} 2} => (*) = \dfrac 1 2 \int 5^t \dif t = \dfrac 1 2 \left(\dfrac{5^t}{\ln 5} + C\right) = \dfrac{5^t}{2\ln 5} + C = \dfrac{5^{2x - 1}}{2\ln 5} + C
+		\end{multline*}
+	
+	\section*{4. \ $\int\sqrt{\frac{x+1}{x}} \dif x = (*)$}
+		\begin{multline*}
+			\freplace{u = \sqrt{\dfrac{x + 1}{x}}}{\dif u = u' \dif x = -\dfrac{1}{2x^2\sqrt{\dfrac{x + 1}{x}}} \dif x}{v = x}{\dif v = \dif x} => \\ (*) = \sqrt{\dfrac{x + 1} x}x - \int x \left(-\dfrac{\dif x}{2x^2\sqrt{\dfrac{x + 1}x}}\right) = x \sqrt{\dfrac{x + 1}x} + \dfrac 1 2 \int \dfrac{\dif x}{x\sqrt{\dfrac{x + 1}x}} =\\= \sqrt{ x\left(x + 1\right)} + \int \dfrac{\dif x}{2\sqrt{x\left(x + 1\right)}}
+		\end{multline*}
+		
+		\begin{multline*}
+			\int \dfrac{\dif x}{2\sqrt{ x\left(x + 1\right)}} = (**)\\
+			\treplace{t = \sqrt x}{x = t^2}{\dif t = \dfrac{\dif x}{2\sqrt x}} => \\(**) = \int  \dfrac{\dif t}{\sqrt{1 + t^2}} = \ln\left|{t + \sqrt{t^2 + 1}}\right| + C = \ln\left|{\sqrt x + \sqrt{x + 1}}\right| + C =>\\ (*) = \sqrt{ x\left(x + 1\right)} + (**) =\\= \sqrt{ x\left(x + 1\right)} + \ln\left|{\sqrt x + \sqrt{x + 1}}\right| + C
+		\end{multline*}
+		
+	\section*{5. \ $\int\dfrac{\dif x}{\cos^2{x - \dfrac{\pi}4}} = (*)$}
+		\begin{multline*}
+			\treplace{t = x - \dfrac{\pi}4}{x = t + \dfrac{\pi}4}{\dif x = \dif t} => (*) = \int\dfrac{\dif t}{\cos^2 t} = \tan\left( t \right) + C = \tan\left({x - \dfrac{\pi}4}\right) + C
+		\end{multline*}
+		
+	\section*{6. \ $\int\frac{\ln x}x \dif x = (*)$}
+		\begin{multline*}
+			\dreplace{t = \ln x}{\dif t = \dfrac{\dif x}x} => (*) = \int t \dif t = \dfrac{t^2}2 + C = \dfrac{{\ln x}^2}2 + C
+		\end{multline*}
+		
+	\section*{7. \ $\int 3^x\  e^{x + 1} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 3^x e^{x + 1}}{\dif t = 3^x * \ln 3 * e^{x + 1} + 3^x e^{x + 1} \dif x}{\dif x = \dfrac{\dif t}{3^x * \ln 3 * e^{x + 1} + 3^x e^{x + 1}} = \dfrac{\dif t}{t * \ln 3 + t} = \dfrac{\dif t}{t\left(\ln 3 + 1\right)}} =>\\ (*) = \int \dfrac t{t\left(\ln 3 + 1\right)} \dif t = \int \dfrac{\dif t}{\ln 3 + 1} = \dfrac 1{\ln 3 + 1} \int \dif t = \dfrac t{\ln 3 + 1} + C = \dfrac {3^x e^{x + 1}}{\ln 3 + 1} + C
+		\end{multline*}
+		
+	\section*{8. \ $\int \frac{{1 + \sqrt x}^2}x \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{1 + 2\sqrt x + x}x \dif x = \int \left(\dfrac 1 x + \dfrac 2{\sqrt x} + 1\right) \dif x = \int \dfrac 1 x \dif x + \int \dfrac 2{\sqrt x} \dif x + \int \dif x = \int \dfrac{\dif x}x + 2\int \dfrac{\dif x}{\sqrt x} + \int \dif x =\\= \ln\left|x\right| + 2* 2\sqrt x + x + C = \ln\left|x\right| + 4\sqrt x + x + C
+		\end{multline*}
+		
+	\section*{9. \ $\int \dfrac{\sqrt[3]{x^2} - x + 1}{\sqrt x} \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \left(\dfrac{\sqrt[3]{x^2}}{\sqrt x} -\dfrac x{\sqrt x} + \dfrac 1{\sqrt x}\right)\dif x = \int \left(x^{\frac 2 3 - \frac 1 2} - x^{1 - \frac 1 2} + \dfrac 1{\sqrt x}\right)\dif x = \int \left(x^{\frac 1 6} - \sqrt x + \dfrac 1{\sqrt x}\right)\dif x =\\= \int x ^{\frac 1 6} \dif x - \int \sqrt x \dif x + \int \dfrac{\dif x}{\sqrt x} = \dfrac 6 7 \sqrt[6]{x^7} - \dfrac 2 3 \sqrt x^3 + 2\sqrt x + C
+		\end{multline*}
+		
+	\section*{10. \ $\int \left(\dfrac{3 * 2^x - 2 * 3^x}{5^{2x}}\right) \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \left(\dfrac{3 * 2^x}{5^{2x}} - \dfrac{2 * 3^x}{5^{2x}}\right) \dif x = \int \dfrac{3 * 2^x}{5^{2x}} \dif x - \int \dfrac{2 * 3^x}{5^{2x}} \dif x = 3\int \dfrac{2^x}{5^{2x}} \dif x - 2\int \dfrac{3^x}{5^{2x}} \dif x =>
+		\end{multline*}
+		
+		\begin{multline*}
+			3\int \dfrac{2^x}{5^{2x}} \dif x = (1)\\ \treplace{t = \dfrac{2^x}{ 5^{2x}}}{\dif t = \dfrac{2^x * 5^{2x} * \ln 2 - 2^x * 5^{2x} * \ln 5}{5^{4x}} \dif x = \left(\dfrac{2^x \ln 2}{5^{2x}} - \dfrac{2^x \ln 5}{5^{2x}}\right) \dif x =\\= \dfrac{2^x}{5^{2x}}\left(\ln 2 - 2 \ln 5\right) \dif x = t\left(\ln 2 - 2 \ln 5\right) \dif x}{\dif x = \dfrac{\dif t}{t\left(\ln 2 - 2 \ln 5\right)}} =>
+			(1) = 3\int \dfrac{t}{t\left(\ln 2 - 2 \ln 5\right)} \dif t =\\= \dfrac 3{\ln 2 - 2 \ln 5}\int \dif t = \dfrac {3t}{\ln 2 - 2 \ln 5} + C = 3\dfrac{2^x}{ 5^{2x}}\left(\dfrac 1{\ln 2 - 2 \ln 5}\right)  + C\\\textrm{Аналогично распишем вторую часть интеграла:}\\
+			2\int \dfrac{3^x}{5^{2x}} \dif x = (2)\\ \treplace{t = \dfrac{3^x}{ 5^{2x}}}{\dif t = \dfrac{3^x * 5^{2x} * \ln 3 - 2^x * 5^{2x} * \ln 5}{5^{4x}} \dif x = \left(\dfrac{3^x \ln 3}{5^{2x}} - \dfrac{3^x \ln 5}{5^{2x}}\right) \dif x =\\= \dfrac{3^x}{5^{2x}}\left(\ln 3 - 2 \ln 5\right) \dif x = t\left(\ln 3 - 2 \ln 5\right) \dif x}{\dif x = \dfrac{\dif t}{t\left(\ln 3 - 2 \ln 5\right)}} =>
+			(2) = 2\int \dfrac{t}{t\left(\ln 3 - 2 \ln 5\right)} \dif t =\\= \dfrac 2{\ln 3 - 2 \ln 5}\int \dif t = \dfrac {2t}{\ln 3 - 2 \ln 5} + C = 2\dfrac{3^x}{ 5^{2x}}\left(\dfrac 1{\ln 3 - 2 \ln 5}\right)  + C\\\textrm{Объединим полученные результаты:}\\
+			(*) = (1) - (2) = \left(3\dfrac{2^x}{ 5^{2x}}\left(\dfrac 1{\ln 2 - 2 \ln 5}\right)  + C \right)- \left(2\dfrac{3^x}{ 5^{2x}}\left(\dfrac 1{\ln 3 - 2 \ln 5}\right)  + C\right) = \dfrac 6{5^{2x}} \left(\dfrac {2^{x - 1}}{\ln 2 - 2 \ln 5} - \dfrac {3^{x - 1}}{\ln 3 - 2 \ln 5}\right) + C
+		\end{multline*}
+		
+	\section*{11. \ $\int \frac{x^3}{{x + 1}^2} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = x + 1}{x = t - 1}{\dif t = \dif x} => (*) = \int \dfrac{\left(t - 1\right)^3}{t^2} \dif x = \int \left(\dfrac{t^3 - 3t^2 + 3t - 1}{t^2}\right) \dif t = \int \left(t - 3 + \dfrac 3 t - \dfrac 1{t^2}\right) \dif t =\\= \int t \dif t - 3\int \dif t + 3\int \dfrac{\dif t}t - \int \dfrac {\dif t}{t^2} = \dfrac 1 2 t^2 - 3t + 3\ln|t| + \dfrac 1 t + C = \dfrac{(x + 1)^2}2 - 3(x + 1) + 3\ln|x + 1| + \dfrac 1{x + 1} + C =\\= \dfrac{x^2 + 2x + 1 - 6x - 6}2 + 3\ln|x + 1| + \dfrac 1{x + 1} + C = \dfrac{x^2 -4x}2 + 3\ln|x + 1| + \dfrac 1{x + 1} + C =\\= \dfrac{x(x - 4)}2 + 3\ln|x + 1| + \dfrac 1{x + 1} + C
+		\end{multline*}
+		
+	\section*{12. \ $\int \frac x{\sqrt{x^2 + 1}} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = x^2 + 1}{\dif t = 2x \dif x}{x \dif x = \dfrac{\dif t}2} => (*) = \int \dfrac{1}{2\sqrt t} \dif t = \dfrac 1 2 \int \dfrac{\dif t}{\sqrt t} = \sqrt t + C = \sqrt{x^2 + 1} + C
+		\end{multline*}
+		
+	\section*{13. \ $\int \frac 1{2x - 1} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 2x - 1}{\dif t = 2\dif x}{\dif x = \dfrac{\dif t}2} => (*) = \int \dfrac{1}{2t} \dif t = \dfrac 1 2 \int \dfrac{\dif t}{t} = \dfrac{\ln|t|}2 + C = \dfrac{\ln|2x - 1|}2 + C
+		\end{multline*}
+	
+	\section*{14. \ $\int (4x + 1)^7 \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 4x + 1}{\dif t = 4\dif x}{\dif x = \dfrac{\dif t}4} => (*) = \dfrac 1 4 \int t^7 \dif t = \dfrac 1 4 * \dfrac 1 8 t^8 + C = \dfrac{t^8}{32} + C = \dfrac{(4x + 1)^8}{32} + C
+		\end{multline*}
+		
+	\section*{15. \ $\int \sqrt[5]{(8 - 3x)^3} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 8 - 3x}{\dif t = -3\dif x}{\dif x = -\dfrac{\dif t}3} => (*) = -\dfrac 1 3 \int \sqrt[5]{t^3} \dif t = -\dfrac 1 3 * \dfrac 5 8 \sqrt[5]{t^8} + C = -\dfrac{5\sqrt[5]{t^8}}{24} + C = -\dfrac 5{24} \sqrt[5]{(8 - 3x)^8} + C
+		\end{multline*}	
+		
+	\section*{16. \ $\int \sqrt[3]{x - 5} \dif x = (*)$}
+		\begin{multline*}
+			\dreplace{t = x - 5}{\dif t = \dif x} => (*) = \int \sqrt[3] t \dif t = \dfrac 3 4 \sqrt[3]{t^4} + C = \dfrac 3 4 \sqrt[3]{( x - 5)^4} + C
+		\end{multline*}
+		
+	\section*{17. \ $\int e^{1 - 3x} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = e^{1 - 3x}}{\dif t = -3e^{1 - 3x} \dif x}{\dif x = -\dfrac{\dif t}{3t}} => (*) = \int -\dfrac{t}{3t} \dif t = -\dfrac 1 3 \int \dif t = -\dfrac t 3 + C = -\dfrac 1 3 e^{1 - 3x} + C
+		\end{multline*}
+		
+	\section*{18. \ $\int \dfrac{\dif x}{1 + 9x^2} = (*)$}
+		\begin{multline*}
+			\treplace{t = 3x}{\dif t = 3\dif x}{\dif x = \dfrac{\dif t}3} => (*) = \dfrac 1 3 \int \dfrac{\dif t}{1 + t^2} = \dfrac 1 3 \arctan \left(t\right)  + C = \dfrac 1 3 \arctan{\left(3x\right)} + C
+		\end{multline*}
+		
+	\section*{19. \ $\int x e^{-x^7} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = e^{-x^2}}{\dif t = -2x e^{-x^2} \dif x}{x e^{-x^2} \dif x = -\dfrac{\dif t}2} => (*) = -\int \dfrac 1 2 e^{-x^5} \dif t = -\dfrac 1 2 \int \sqrt{t^5} \dif t = -\dfrac 1 7 \sqrt{t^7} + C = -\dfrac 1 7 \sqrt{e^{-7x^2}} + C
+		\end{multline*}
+		
+	\section*{20. \ $\int e^{5x - 1} \dif x = (*)$}
+		\begin{multline*}
+			\treplace{t = 5x - 1}{\dif t = 5\dif x}{\dif x = \dfrac{\dif t}5} => (*) = \dfrac 1 5 \int e^t \dif t = \dfrac 1 5 e^t + C = \dfrac 1 5 e^{5x - 1} + C
+		\end{multline*}
+	
+	\section*{21 \ $\int \dfrac{\dif x}{\sin^4 x + \cos^4 x} = (*)$}
+		\begin{multline*}
+			\dreplace{\sin^2 x = \dfrac{1 - \cos 2x}2}{\cos^2 x = \dfrac{1 + \cos 2x}2} => (*) = \int \dfrac{\dif x}{\left(\dfrac{1 - \cos 2x}{2}\right)^2 + \left(\dfrac{1 + \cos 2x}{2}\right)^2} =\\= 4\int \dfrac{\dif x}{1 - 2 \cos 2x + \cos^2 2x + 1 + 2 \cos 2x + \cos^2 x} = 4\int \dfrac{\dif x}{2 + 2 \cos^2 2x} = 2\int \dfrac{\dif x}{1 + \cos^2 2x} =\\= 2 \int \dfrac{\dif x}{1 + \dfrac{1 + \cos 4x}2} = 4 \int \dfrac{\dif x}{2 + 1 + \cos 4x} = 4 \int \dfrac{\dif x}{3 + \cos 4x} \\ \treplace{\cos 4x = \dfrac{1 - \tan^2 \left( 2x\right)}{1 + \tan^2 \left(2x\right)}}{t = \tan \left(2x\right),\ 2x = \arctan \left(t\right),\ x = \dfrac{\arctan \left(t\right)}2}{\dif x = \dfrac{\dif t}{2(1 + t^2)}} =>\\(*) = 4\int \dfrac{\dif t}{2\left(1 + t^2\right)\left(3 + \dfrac{1 - t^2}{1 + t^2}\right)} = 2 \int \dfrac{\dif t}{3 + 3t^2 + 1 - t^2} = 2 \int \dfrac{\dif t}{4 + 2t^2} = \int \dfrac{\dif t}{2 + t^2} = \int \dfrac{\dif t}{\sqrt{2}^2 + t^2} =\\= \dfrac 1{\sqrt{2}} \ \arctan\left( \dfrac t{\sqrt{2}}\right) + C = \dfrac 1{\sqrt{2}} \ \arctan\left(\dfrac{\tan \left(2x\right)}{\sqrt{2}}\right) + C
+		\end{multline*}
+		
+	\section*{22. \ $\int(\arcsin x + \arccos x) \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \arcsin x \dif x + \int \arccos x \dif x = (1) + (2)\\ \textrm{Для первого интеграла распишем}\\
+			\freplace{u = \arcsin x}{\dif u = \dfrac{\dif x}{\sqrt{1 - x^2}}}{v = x}{\dif v = \dif x} => (1) = x \arcsin x - \int \dfrac x{\sqrt{1 - x^2}} \dif x\\\textrm{Для второго интеграла распишем}\\
+			\freplace{u = \arccos x}{\dif u = -\dfrac{\dif x}{\sqrt{1 - x^2}}}{v = x}{\dif v = \dif x} => (2) = x \arccos x + \int \dfrac x{\sqrt{1 - x^2}} \dif x => \\(*) = x \arcsin x - \int \dfrac x{\sqrt{1 - x^2}} \dif x + x \arccos x + \int \dfrac x{\sqrt{1 - x^2}} \dif x =\\= x \arcsin x + x \arccos x + C = x\left( \arcsin x + \arccos x\right) + C
+		\end{multline*}
+		
+	\section*{23. \ $\int\dfrac{\dif x}{1 + \cos^2 x} = (*)$}
+		\begin{multline*}
+			(*) = \int\dfrac{\dif x}{1 + \dfrac{1 + \cos 2x}2} = 2\int\dfrac{\dif x}{2 + 1 + \cos 2x} = 2\int\dfrac{\dif x}{3 + \cos 2x} \\ \treplace{\cos 2x = \dfrac{1 - \tan^2 \left(x\right)}{1 + \tan^2 \left(x\right)}}{t = \tan \left(x\right), \ x = \arctan \left(t\right)}{\dif x = \dfrac{\dif t}{1 + t^2}} => (*) =  2\int\dfrac{\dif x}{\left(1 + t^2\right)\left(3 + \dfrac{1 - t^2}{1 + t^2}\right)} = 2 \int \dfrac{\dif t}{3 + 3t^2 + 1 - t^2} =\\= 2 \int \dfrac{\dif t}{4 + 2t^2} = \int \dfrac{\dif t}{2 + t^2} = \int \dfrac{\dif t}{\left(\sqrt{2}\right)^2 + t^2} = \dfrac 1{\sqrt 2} \ \arctan\left(\dfrac t{\sqrt 2}\right) + C = \dfrac 1{\sqrt 2} \ \arctan\left(\dfrac{\tan \left(x\right)}{\sqrt 2}\right) + C
+		\end{multline*}
+	
+	\section*{24. \ $\int \dfrac{\cos 2x}{\sin^2 x \ \cos^2 x} \dif x = (*)$}
+		\begin{multline*}	
+			(*) = \int \dfrac{\cos^2 x - \sin^2 x}{\sin^2 x \ \cos^2 x} \dif x\\\dreplace{t = \sin x \ \cos x}{\dif t = \left( \cos^2 x \ - \sin^2 x\right) \dif x} => (*) = \int \dfrac{\dif t}{t^2} = -\dfrac 1{t} + C = -\dfrac{1}{\sin x \ \cos x} + C	
+		\end{multline*}
+		
+	\section*{25. \ $\int \cot^2 \left(x\right) \ \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{\cos^2 x}{\sin^2 x} \dif x\\ \dreplace{\cos^2 x = \dfrac{1 + \cos 2x}2}{\sin^2 x = \dfrac{1 - \cos 2x}2} => (*) = \int \dfrac{1 + \cos 2x}{1 - \cos 2x} \dif x = \int \dfrac{1 - \cos 2x + 2 \cos 2x}{1 - \cos 2x} \dif x =\\= \int \dif x + 2 \int \dfrac{\cos 2x}{1 - \cos 2x} \dif x = x + 2 \int \dfrac{\cos 2x}{1 - \cos 2x} \dif x\\ \treplace{cos 2x = \dfrac{1 - \tan^2 \left(x\right)}{1 + \tan^2 \left(x\right)}}{t = \tan^2 \left(x\right), \ x = \arctan \left(t\right)}{\dif x = \dfrac{\dif t}{1 + t^2}} => (*) = x + 2\int \dfrac{\dfrac{1 - t^2}{1 + t^2}}{1 - \dfrac{1 - t^2}{1 + t^2}} \dfrac{\dif t}{1 + t^2} = x + 2 \int \dfrac{\left(1 - t^2\right)\left(1 + t^2\right)}{\left(1 + t^2\right)^2 \left(1 + t^2 - 1 + t^2\right)} \dif t =\\= x + 2\int \dfrac{1 - t^2}{2t^2 \ \left(1 + t^2\right)} \dif t = x + \int \dfrac{1 - t^2}{t^2 \ \left(1 + t^2\right)} \dif t \\\textrm{Разложим подынтегральное выражение на простые слагаемые: }\\ \dfrac{1 - t^2}{t^2 \ \left(1 + t^2\right)} = \dfrac A{t^2} + \dfrac B t + \dfrac{Ct + D}{1 + t^2} = \dfrac{A\left(1 + t^2\right) + Bt\left(1 + t^2\right) + \left(Ct + D\right)\ t^2}{t^2 \ \left(1 + t^2\right)} =>\\\\A + At^2 + Bt + Bt^3 + Ct^3 + Dt^2 = 1 - t^2
+		\end{multline*}
+		\begin{multline*}
+			\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = A \\ t^1 & 0 = B \\ t^2 & -1 = A + D \\ t^3 & 0 = B + C\end{array} => A = 1, \ B = 0, \ C = 0, \ D = -2 \\ \\ \dfrac{1 - t^2}{t^2 \ \left(1 + t^2\right)} = \dfrac 1{t^2} - \dfrac 2{1 + t^2} => (*) = x + \int \dfrac {\dif t}{t^2} - 2\int \dfrac {\dif t}{1 + t^2} = x - \dfrac 1 t - 2 \int \dfrac{\dif t}{t^2 + 1} = x - \dfrac 1 t - 2 \arctan\left(t\right) + C =\\= x - \dfrac 1{\tan \left(x\right)} - 2 \arctan\left(\tan \left(x\right)\right) + C = x - \dfrac 1{\tan \left(x\right)} - 2x + C = -x - \cot \left(x\right) + C 
+		\end{multline*}
+		
+	\section*{26. \ $\int \dfrac{\dif x}{\cos^2 x - \cos 2x} = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{\dif x}{\cos^2 x - \cos^2 x + \sin^2 x} = \int \dfrac{\dif x}{\sin^2 x} = -\cot \left(x\right) + C
+		\end{multline*}
+		
+	\section*{27. \ $\int \dfrac{1 + \cos^2 x}{1 + \cos 2x} \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{1 + \dfrac{1 + \cos 2x}2}{1 + \cos 2x} \dif x = \dfrac 1 2 \int \dfrac{2 + 1 + \cos 2x}{1 + \cos 2x} \dif x = \dfrac 1 2 \int \dfrac{1 + \cos 2x + 2}{1 + \cos 2x} \dif x =\\= \dfrac 1 2 \int \dif x + \int \dfrac{\dif x}{1 + \cos 2x} = \dfrac 1 2 \left(x + \int \dfrac{\dif x}{\cos^2 x}\right) = \dfrac 1 2 \left( x + \tan\left(x\right)\right) + C
+		\end{multline*}
+	
+	\section*{28. \ $\int \dfrac{\sin x}{\cos^3 x} \dif x = (*)$}
+		\begin{multline*}
+			\dreplace{t = \cos x}{\dif t = -\sin x \dif x} => (*) = - \int \dfrac{\dif t}{t^3} = \dfrac 1{2t^2} + C = \dfrac 1{2\cos^2 x} + C
+		\end{multline*}
+		
+	\section*{29. \ $\int \tan \left(x\right) \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{\sin x}{\cos x} \dif x \\\dreplace{t = \cos x}{\dif t = -\sin x \dif x} => (*) = - \int \dfrac{\dif t}t = -\ln\left|t\right| + C = -\ln\left|\cos x\right| + C
+		\end{multline*}
+		
+	\section*{30. \ $\int \sin^2 3x \ \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{1 - \cos 6x}2 \dif x = \dfrac 1 2 \left(\int \dif x - \int \cos 6x \dif x\right) = \dfrac 1 2 \left(x - \dfrac 1 6 \int \cos 6x \dif{6x}\right) = \dfrac x 2 - \dfrac 1 12 \sin 6x + C
+		\end{multline*}
+	
+	\section*{31. \ $\int \dfrac{\sin 2x}{1 + \cos^2 x} \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{\sin 2x}{1 + \dfrac{1 + \cos 2x}2} \dif x = 2 \int \dfrac{\sin 2x}{2 + 1 + \cos 2x} \dif x = 2 \int \dfrac{\sin 2x}{3 + \cos 2x} \dif x\\ \treplace{t = 3 + \cos 2x}{\dif t = -2 \sin 2x \dif x}{\sin 2x \dif x = -\dfrac 1 2 \dif t} => (*) = -\int \dfrac{\dif t}t = -\ln \left|t\right| + C = -\ln \left|3 + \cos 2x\right| + C
+		\end{multline*}
+		
+	\section*{32. \ $\int \cos x \ e^{\sin x} \dif x = (*)$}
+		\begin{multline*}
+			\dreplace{t = \sin x}{\dif t = \cos x \dif x} => (*) = \int e^t \dif t = e^t + C = e^{\sin x} + C
+		\end{multline*}
+		
+	\section*{33. \ $\int \sin^4 x \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \dfrac{3 - 4 \cos 2x + \cos 4x}8 \dif x = \dfrac 3 8 \int \dif x - \dfrac 1 2 \int \cos 2x \dif x + \dfrac 1 8 \int \cos 4x \dif x = \dfrac 3 8 x + \dfrac 1 4 \sin 2x - \dfrac 1{32} \sin 4x + C
+		\end{multline*}	
+		
+	\section*{34. \ $\int \sin x \ \sin 5x \dif x = (*)$}
+		\begin{multline*}
+			(*) = \dfrac 1 2 \int \left(\cos(x - 5x) + \cos(x + 5x)\right) \dif x = \dfrac 1 2 \int \left(\cos 4x + \cos 6x\right) \dif x = \dfrac 1 8 \int \cos 4x \dif{4x} + \dfrac 1{12} \int \cos 6x \dif{6x} =\\= \dfrac{\sin 4x}8 + \dfrac{\sin 6x}{12} + C
+		\end{multline*}
+	
+	\section*{35. \ $\int \cos^3 x \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \cos x \ \left(1 - \sin^2 x\right) \dif x\\\dreplace{t = \sin x}{\dif t = \cos x \dif x} => (*) = \int \left(1 - t^2\right) \dif t = \int \dif t - \int t^2 \dif t = t - \dfrac{t^3}3 + C = \sin x - \dfrac{\sin^3 x}3 + C = 
+		\end{multline*}
+		
+	\section*{36. \ $\int \cos^6 x \dif x = (*)$}
+		\begin{multline*}
+			(*) = \int \left(\dfrac{1 + \cos 2x}2\right)^3 \dif x = \dfrac 1 8 \int \left(1 + \cos 2x\right)^3 \dif x = \dfrac 1 8 \int \left(1 + 3 \cos 2x + 3 \cos^2 2x + \cos^3 2x\right) \dif x =\\= \dfrac 1 8 \int \left(1 + 3 \cos 2x + \dfrac 3 2 (1 + \cos 4x) + \cos 2x \dfrac{1 + \cos 4x}2\right) \dif x =\\= \dfrac 1 8 \int \left(1 + 3 \cos 2x + \dfrac{3 + 3\cos 4x}2 + \dfrac{\cos 2x + \cos 2x \ \cos 4x}2\right) \dif x =\\= \dfrac 1{16} \int \left(2 + 7 \cos 2x + 3 + 3\cos 4x + \cos 2x \ \cos 4x\right) \dif x =\\= \dfrac 1{16} \int \left(2 + 7 \cos 2x + 3 + 3\cos 4x + \dfrac 1 2 \left(\cos(2x + 4x) + \cos(2x - 4x)\right)\right) \dif x =\\= \dfrac 1{32} \int \left(10 + 14 \cos 2x + 6\cos 4x + \cos 6x + \cos 2x\right) \dif x = \dfrac 1{32} \int \left(10 + 15 \cos 2x + 6\cos 4x + \cos 6x\right) \dif x =\\= \dfrac{10}{32} x + \dfrac{15}{64} \sin 2x + \dfrac{1}{32} \dfrac 6 4 \sin 4x + \dfrac 1{32} \dfrac 1 6 \sin 6x + C = \dfrac{5}{16} x + \dfrac{15}{64} \sin 2x + \dfrac{3}{64} \sin 4x + \dfrac 1{192}\sin 6x + C =\\= \dfrac 1{192}\left( 60 x + 45 \sin 2x + 9 \sin 4x + \sin 6x \right) + C
+		\end{multline*}
+	
+	\section*{37. \ $\int \dfrac{\cos 2x}{1 + \sin x \ \cos x} \dif x = (*)$}	
+		\begin{multline*}
+			(*) = \int \dfrac{2 \cos 2x}{2 + \sin 2x} \dif x\\\dreplace{t = 2 + \sin 2x}{\dif t = 2 \cos 2x \ \sin 2x \dif x} => (*) = \int \dfrac{\dif t}t  = \ln\left|t\right| + C = \ln\left|2 + \sin 2x\right| + C
+		\end{multline*}
+	
+	\section*{38. \ $\int sin^5 x \dif x = (*)$}	
+		\begin{multline*}
+			\treplace{t = \cos^2 x}{\dif t = -2 \cos x \sin x \dif x}{\sin x \dif x = -\dfrac{\dif t}{2 \cos x}} => (*) = -\int \sin^4 x \dfrac{\dif t}{2 \cos x} = -\int \left(1 - \cos^2 x\right)^2 \dfrac{\dif t}{2 \cos x} = -\int \dfrac{\left(1 - t\right)^2}{2 \sqrt t} \dif t =\\= -\dfrac 1 2 \int \dfrac{1 - 2t + t^2}{\sqrt t} \dif t = -\int \dfrac{\dif t}{2 \sqrt t} + \int \sqrt t \ \dif t - \int \sqrt{t^3} \ \dfrac{\dif t}2 = -\sqrt t + \dfrac 2 3 \sqrt{t^3} - \dfrac 1 5 \sqrt{t^5} + C =\\= - \cos x + \dfrac 2 3 \cos^3 x - \dfrac 1 5 \cos^5 x + C
+		\end{multline*}
+		
+	\section*{39. \ $\int \dfrac{\dif x}{1 + \sin^2 x} = (*)$}	
+		\begin{multline*}
+			(*) = \int \dfrac{\dif x}{1 + \dfrac{1 - \cos 2x}2} = 2\int \dfrac{\dif x}{2 + 1 -\cos 2x} = 2\int \dfrac{\dif x}{3 - \cos 2x}\\ \treplace{\cos 2x = \dfrac{1 - \tan^2 \left(x\right)}{1 + \tan^2 \left(x\right)}}{t = \tan \left(x\right), \ x = \arctan \left(t\right)}{\dif x = \dfrac{\dif t}{1 + t^2}} => (*) = 2\int \dfrac{\dif t}{\left(1 + t^2\right)\left(3 - \dfrac{1 - t^2}{1 + t^2}\right)} = 2\int \dfrac{\dif t}{3 + 3t^2 - 1 + t^2} =\\= 2\int \dfrac{\dif t}{2 + 4t^2} = \int \dfrac{\dif t}{\left(\sqrt 2 t\right)^2 + 1} = \dfrac 1{\sqrt 2} \int \dfrac{\dif {\sqrt 2 t}}{\left(\sqrt 2 t\right)^2 + 1} = \dfrac 1{\sqrt 2} \arctan{\left(\sqrt 2 t\right)} + C = \dfrac 1{\sqrt 2} \arctan\left(\sqrt 2 \tan \left( x\right)\right) + C 
+		\end{multline*}	
+	
+	\section*{40. \ $\int \dfrac{\dif x}{cos x} = (*)$}
+		\begin{multline*}
+			\treplace{cos x = \dfrac{1 - \tan^2{\left(\dfrac x 2\right)}}{1 + \tan^2{\left(\dfrac x 2\right)}}}{t = \tan{\left(\dfrac x 2\right)},\ \dfrac x 2 = \arctan \left(t\right), \ x = 2 \arctan \left(t\right)}{\dif x = \dfrac{2 \dif t}{1 + t^2}} => (*) = 2 \int \dfrac{1 + t^2}{1 - t^2} \dfrac{\dif t}{1 + t^2} = 2 \int \dfrac{\dif t}{1 - t^2} = 2 \int \dfrac{\dif t}{(1 - t)(1 + t)}\\ \textrm{Разложим подынтегральное выражение на простые слагаемые: }\\ \dfrac 2{\left(1 + t\right)\left(1 - t\right)} = \dfrac A{1 - t} + \dfrac B{1 + t} = \dfrac{A\left(1 + t\right) + B\left(1 - t\right)}{\left(1 - t\right)\left(1 + t\right)} =>\\A + At + B - Bt = 2 \\
+			\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 2 = A + B \\ t^1 & 0 = A - B\end{array} => A = B = 1\\ \dfrac 1{\left(1 + t\right)\left(1 - t\right)} = \dfrac 1{1 - t} + \dfrac 1{1 + t} => (*) = \int \dfrac{\dif t}{1 + t} + \int \dfrac{\dif t}{1 - t} = \int \dfrac{\dif{(1 + t)}}{1 + t} - \int \dfrac{\dif{(1 - t)}}{1 - t} =\\= \ln\left|1 + t\right| - \ln\left|1 - t\right| + C = \ln\left|1 + \tan{\left(\dfrac x 2\right)}\right| - \ln\left|1 - \tan{\left(\dfrac x 2\right)}\right| + C = \ln\left| \dfrac{1 + \tan{\left(\dfrac x 2\right)}}{1 - \tan{\left(\dfrac x 2\right)}}\right| + C
+		\end{multline*}
+	
+		\section*{41. \ $\int \dfrac{\dif x}{\cos^4 x} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dfrac{\sin^2 x}{\cos^2 x}}{\dfrac{\sin^2 x}{\cos^2 x} \cos^4 x} \dif x = \int \dfrac{\tan^2 \left(x\right)}{\sin^2 x \ \cos^2 x} \dif x\\ \\\treplace{t = \tan \left(x\right) = \dfrac{\sin x}{\cos x} => \ \sin x = t \cos x, \ \sin x = t \sqrt{1 - \sin^2 x}, \ }{\sin^2 x = t^2 (1 - \sin^2 x), \ \sin^2 x = \dfrac{t^2}{1 + t^2}}{\dif t = \dfrac{\dif x}{\cos^2 x}} => (*) = \int \dfrac{t^2}{\left(\dfrac{t^2}{1 + t^2}\right)} \dif t =\\\\= \int \left(1 + t^2\right) \dif t = \int \dif t + \int t^2 \dif t = t + \dfrac 1 3 t^3 + C = \tan \left(x\right) + \dfrac 1 3 \tan^3\left( x\right) + C
+			\end{multline*}
+		
+		\section*{42. \ $\int \dfrac{\dif x}{3 \sin^2 x + 4 \cos^2 x} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{\cos^2 c \left(3 \tan^2 \left(x\right) + 4\right)} = \dfrac 1{\sqrt 3} \int \dfrac{\dif{(\sqrt 3 \tan \left(x\right))}}{\left(\sqrt 3 \tan \left(x\right)\right)^2 + 2^2} = \dfrac 1{2 \sqrt 3} \arctan \left(\dfrac{\sqrt 3 \tan\left( x\right)}2 \right) + C
+			\end{multline*}
+			
+		\section*{43. \ $\int \cot{\left(x - \dfrac{\pi}8 \right)} \dif x = (*)$}
+			\begin{multline*}	
+				\dreplace{\alpha = x - \dfrac{\pi}8}{\dif \alpha = \dif x} => (*) = \int \cot\left( \alpha\right) \dif \alpha	= \int \dfrac{\cos \alpha}{\sin \alpha} \dif \alpha\\ \dreplace{t = \sin \alpha}{\dif t = \cos \alpha \dif \alpha} => (*) = \int \dfrac{\dif t}t = \ln\left|t\right| + C = \ln \left|\sin \left(x - \dfrac{\pi}8\right)\right| + C
+			\end{multline*}
+		
+		\section*{44. \ $\int \dfrac{\cos x}{\sqrt[3]{\sin^2 x}} \dif x = (*)$}
+			\begin{multline*}
+				 \dreplace{t = \sin x}{\dif t = \cos x \dif x} => (*) = \int \dfrac{\dif t}{\sqrt[3]{t^2}} = 3 \sqrt[3] t + C = 3 \sqrt[3] \sin x + C
+			\end{multline*}
+			
+		\section*{45. \ $\int \sin 2x \ e^{\cos 2x} \dif x = (*)$}
+			\begin{multline*}
+				\treplace{t = \cos 2x}{\dif t = -2 \sin 2x \dif x}{\sin 2x \dif x = - \dfrac{\dif t}2} => (*) = - \dfrac 1 2 \int e^t \dif t = - \dfrac{e^t}2 + C = - \dfrac 1 2 \int e^{\cos 2x} \dif t = - \dfrac{e^t}2 + C
+			\end{multline*}
+			
+		\section*{46. \ $\int \dfrac{\sqrt x + \sqrt[3] x}x \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{\sqrt x} + \int \dfrac{\dif x}{\sqrt[3]{x^2}} = 2 \sqrt x + 3 \sqrt[3] x + C
+			\end{multline*}
+			
+		\section*{47. \ $\int x \ \sqrt{1 - x^2} \dif x = (*)$}
+			\begin{multline*}
+				\treplace{t = 1 - x^2}{\dif t = -2 x \dif x}{x \dif x = - \dfrac{\dif t}2} => (*) = -\dfrac 1 2 \int \sqrt t \dif t = - \dfrac 1 3 \sqrt{t^3} + C = - \dfrac 1 3 \sqrt{\left(1 - x^2\right)^3} + C
+			\end{multline*}
+			
+		\section*{48. \ $\int 3^{-x} \dif x = (*)$}
+			\begin{multline*}
+				(*) = - \int 3^{-x}  \dif -x = - \dfrac{3^{-x}}{\ln 3} + C
+			\end{multline*}
+		
+		\section*{49. \ $\int \dfrac x{x^4 + 1} \dif x = (*)$}
+			\begin{multline*}
+				\treplace{t = x^2}{\dif t = 2 x \dif x}{x \dif x = \dfrac{\dif t}2} => (*) = \dfrac 1 2 \int \dfrac{\dif t}{1 + t^2} = \dfrac 1 2 \arctan \left(t\right) + C = \dfrac 1 2 \arctan \left(x^2\right) + C
+			\end{multline*}
+		
+		\section*{50. \ $\int \sqrt{\dfrac{1 - x}{1 + x}} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{1 - x}{\sqrt{\left(1 + x\right)\left(1 - x\right)} \dif x} = \int \dfrac{\dif x}{\sqrt{1 - x^2}} - \int \dfrac{x \dif x}{\sqrt{1 - x^2}} = \arcsin x \ - \int \dfrac{x \dif x}{\sqrt{1 - x^2}}\\ \treplace{t = 1 - x^2}{\dif t = -2 x \dif x}{x \dif x = -\dfrac{\dif t}2} => (*) = \arcsin x \ + \dfrac 1 2 \int \dfrac{\dif t}{\sqrt t} = \arcsin x \ + \sqrt t + C = \arcsin x \ + \sqrt{1 - x^2} + C
+			\end{multline*}
+			
+		\section*{51. \ $\int \dfrac{e^x}{e^{2x} + 9} \dif x = (*)$}
+			\begin{multline*}
+				\dreplace{t = e^x}{\dif t = e^x \dif x} => (*) = \int \dfrac{\dif t}{9 + t^2} = \int \dfrac{\dif t}{3^2 + t^2} = \dfrac 1 3 \arctan{\left(\dfrac t 3\right)} + C = \dfrac 1 3 \arctan{\left(\dfrac{e^x}3\right)} + C
+			\end{multline*}
+			
+		\section*{52. \ $\int \dfrac{\dif x}{x \ \ln x} = (*)$}
+			\begin{multline*}
+				\dreplace{t = \ln x}{\dif t = \dfrac{\dif x}x} => (*) = \int \dfrac{\dif t}t = \ln{\left|t\right|} + C = \ln{\left|\ln x\right|} + C 
+			\end{multline*}
+			
+		\section*{53. \ $\int \dfrac{x \dif x}{x - \sqrt{x^2 - 1}} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x \left(x + \sqrt{x^2 - 1}\right)}{\left(x + \sqrt{x^2 - 1}\right)\left(x - \sqrt{x^2 - 1}\right)} \dif x = \int \dfrac{x \left(x + \sqrt{x^2 - 1}\right)}{x^2 - \left(x^2 - 1\right)} \dif x =\\= \int x \left(x + \sqrt{x^2 - 1}\right) \dif x = \int x^2 + x \sqrt{x^2 - 1} \dif x = \int x^2 \dif x + \int x \sqrt{x^2 - 1} \dif x = \dfrac{x^3}3 + \int x \sqrt{x^2 - 1} \dif x\\ \treplace{t = x^2 - 1}{\dif t = 2 x \dif x}{x \dif x = \dfrac{\dif t}2} => (*) = \dfrac{x^3}3 + \dfrac 1 2 \int \sqrt t \dif t = \dfrac{x^3}3 + \dfrac{\sqrt{t^3}}3 + C = \dfrac{x^3}3 + \dfrac{\sqrt{{\left(x^2 - 1\right)}^3}}3 + C
+			\end{multline*}
+		
+		\section*{54. \ $\int x \ \sqrt[3]{1 + x} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x \left(1 + x\right)}{\sqrt[3]{\left(1 + x\right)^2}} \dif x\\ \treplace{t = {\left(1 + x\right)^2}}{\dif t = 2 \left(1 + x\right) \dif x}{\left(1 + x\right) \dif x = \dfrac{\dif t}2} => (*) = \dfrac 1 2 \int \dfrac{\sqrt t - 1}{\sqrt[3] t} \dif t = \dfrac 1 2 \int \dfrac{\dif t}{\sqrt[6] t} - \dfrac 1 2 \int \dfrac{\dif t}{\sqrt[3] t} = \dfrac 3 7 \sqrt[6]{t^7} - \dfrac 3 4 \sqrt[3]{t^2} + C =\\= \dfrac 3 7 \sqrt[3]{{\left(1 + x\right)}^7} - \dfrac 3 4 \sqrt[3]{{\left(1 + x\right)}^4} + C
+			\end{multline*}
+			
+		\section*{55. \ $\int \dfrac{\dif x}{1 - 4 x^2} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{1 - {\left(2 x\right)}^2} = \dfrac 1 2 \int \dfrac{\dif x}{1 - 2 x} + \dfrac 1 2 \int \dfrac{\dif t}{1 + 2 x} =\\= -\dfrac 1 4 \int \dfrac{\dif \left(1 - 2 x\right)}{1 - 2 x} + \dfrac 1 4 \int \dfrac{\dif \left(1 + 2 x\right)}{1 + 2 x} = -\dfrac 1 4 \ln \left|1 - 2 x\right| + \dfrac 1 4 \ln \left|1 + 2 x\right| + C = \dfrac 1 4 \ln \left|\dfrac{1 + 2 x}{1 - 2 x}\right| + C
+			\end{multline*}
+			
+		\section*{56. \ $\int \dfrac{\dif x}{\sqrt{4 - 9 x^2}} = (*)$}
+			\begin{multline*}
+				\treplace{t = 3x}{\dif t = 3 \dif x}{\dif x = \dfrac{\dif t}3} => (*) = \dfrac 1 3 \int \dfrac{\dif t}{\sqrt{2^2 - t^2}} = \dfrac 1 3 \arcsin{\left(\dfrac t 2\right)} + C = \dfrac 1 3 \arcsin{\left(\dfrac 3 2 x\right)} + C
+			\end{multline*}
+			
+		\section*{57. \ $\int \dfrac{x \sqrt{1 + x}}{\sqrt{1 - x}} \dif x= (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x \left(1 + x\right)}{\sqrt{1 - x^2}} \dif x = \int \dfrac{x \dif x}{\sqrt{1 - x^2}} + \int \dfrac{x^2 \dif x}{\sqrt{1 - x^2}} = -\dfrac 1 2 \int \dfrac{\dif{\left(1 - x^2\right)}}{\sqrt{1 - x^2}} - \int \dfrac{-x^2}{\sqrt{1 - x^2}} \dif x =\\=  -\sqrt{1 - x^2} - \int \sqrt{1 - x^2} \dif x + \int \dfrac{\dif x}{\sqrt{1 - x^2}} = -\sqrt{1 - x^2} + \arcsin x - \int \sqrt{1 - x^2} \dif x\\ I = \int \sqrt{1 - x^2} \dif x\\\freplace{u = \sqrt{1 - x^2}}{\dif u = -\dfrac{x \dif x}{\sqrt{1 - x^2}}}{v = x}{\dif v = \dif x} => I = x\sqrt{1 - x^2} + \int \dfrac{x^2 \dif x}{\sqrt{1 - x^2}} =\\= x\sqrt{1 - x^2} - \int \dfrac{1 - x^2 \dif x}{\sqrt{1 - x^2}} + \int \dfrac{\dif x}{\sqrt{1 - x^2}} =x\sqrt{1 - x^2} - \int \sqrt{1 - x^2} \dif x + \int \dfrac{\dif x}{\sqrt{1 - x^2}} =>\\ 2I = x\sqrt{1 - x^2} + \arcsin x => I = \dfrac x 2 \sqrt{1 - x^2} + \dfrac 1 2 \arcsin x + C\\(*) = -\sqrt{1 - x^2} + \arcsin x - I =\\= -\sqrt{1 - x^2} + \arcsin x - \left(\dfrac x 2 \sqrt{1 - x^2} + \dfrac 1 2 \arcsin x\right) + C = -\sqrt{1 - x^2}\left(1 + \dfrac x 2\right) + \dfrac 1 2 \arcsin x + C
+			\end{multline*}
+		
+		\section*{58. \ $\int \dfrac{1 + x}{\sqrt{1 - x^2}} \dif x= (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{\sqrt{1 - x^2}} + \int \dfrac{x \dif x}{\sqrt{1 - x^2}} = \arcsin x \ + \int \dfrac{x \dif x}{\sqrt{1 - x^2}}\\ \treplace{t = 1 - x^2}{\dif t = -2 x \dif x}{x \dif x = -\dfrac{\dif t}2} => (*) = \arcsin x \ - \dfrac 1 2 \int \dfrac{\dif t}{\sqrt t} = \arcsin x \ - \sqrt t + C = \arcsin x \ - \sqrt{1 - x^2} + C
+			\end{multline*}
+			
+		\section*{59. \ $\int \dfrac{1 + x - x^2}{\sqrt{\left(1 - x^2\right)^3}} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac x{\sqrt{\left(1 - x^2\right)^3}} \dif x + \int \dfrac{1 - x^2}{\sqrt{\left(1 - x^2\right)^3}} \dif x	= \int \dfrac{x \dif x}{\sqrt{\left(1 - x^2\right)^3}} + \int \dfrac{\dif x}{\sqrt{1 - x^2}} = \int \dfrac{x \dif x}{\sqrt{\left(1 - x^2\right)^3}} + \arcsin x\\\treplace{t = 1 - x^2}{\dif t = -2 x \dif x}{x \dif x = -\dfrac{\dif t}2} => (*) = \arcsin x - \dfrac 1 2 \int \dfrac{\dif t}{\sqrt{t^3}} = \dfrac 1{\sqrt t} + \arcsin x + C = \dfrac 1{\sqrt{1 - x^2}} + \arcsin x + C
+			\end{multline*}	
+			
+		\section*{60. \ $\int x \ \cos x \dif x= (*)$}
+			\begin{multline*}
+				\freplace{u = x}{\dif u = \dif x}{v = \sin x}{\dif v = \cos x \dif x} => (*) = x \ \sin x - \int \sin x \dif x = x \ \sin x + \cos x + C
+			\end{multline*}	
+			
+		\section*{61. \ $\int \arccos x \dif x= (*)$}
+			\begin{multline*}
+				\freplace{u = \arccos x}{\dif u = - \dfrac{\dif x}{\sqrt{1 - x^2}}}{v = x}{\dif v = \dif x} => (*) = x \ \arccos x + \int \dfrac{x \dif x}{\sqrt{1 - x^2}}\\\treplace{t = 1 - x^2}{\dif t = -2 x \dif x}{x \dif x = -\dfrac{\dif t}2} => (*) = x \ \arccos x - \dfrac 1 2 \int \dfrac{\dif t}{\sqrt t} = x \ \arccos x - \sqrt t + C = x \ \arccos x - \sqrt{1 - x^2} + C
+			\end{multline*}
+			
+		\section*{62. \ $\int x \ \arctan x \dif x= (*)$}
+			\begin{multline*}
+				\freplace{u = \arctan{\left(x\right)}}{\dif u = \dfrac{\dif x}{1 + x^2}}{v = \dfrac{x^2}2}{\dif v = x \dif x} => (*) = \dfrac{x^2}2 \arctan{\left(x\right)} - \dfrac 1 2 \int \dfrac{x^2}{1 + x^2} \dif x =\\= \dfrac{x^2}2 \arctan{\left(x\right)} - \dfrac 1 2 \int \dif x + \dfrac 1 2 \int \dfrac{\dif x}{1 + x^2} = \dfrac{x^2}2 \arctan{\left(x\right)} - \dfrac x 2 + \dfrac 1 2 \arctan{\left(x\right)} + C = \dfrac 1 2 \left(x^2 + 1\right) \arctan{\left(x\right)} - \dfrac x 2 + C
+			\end{multline*}	
+			
+		\section*{63. \ $\int x^2 \ e^x \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = x^2}{\dif u = 2 x \dif x}{v = e^x}{\dif v = e^x \dif x} => (*) = x^2 \ e^x -2 \int x \ e^x \dif x\\\freplace{u = x}{\dif u = \dif x}{v = e^x}{\dif v = e^x \dif x} =>\\ (*) = x^2 \ e^x - 2x \ e^x + 2 \int e^x \dif x = x^2 \ e^x - 2x \ e^x + 2e^x + C = e^x \ \left(x^2 - 2x + 2\right) + C
+			\end{multline*}
+			
+		\section*{64. \ $\int \ln x \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = \ln x}{\dif u = \dfrac{\dif x}x}{v = x}{\dif v = \dif x} => (*) = x \ \ln x - \int \dif x = x \ \ln x - x + C = x \ \left(\ln x - 1\right) + C
+			\end{multline*}
+			
+		\section*{65. \ $\int \sqrt{x^2 + 1} \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = \sqrt{x^2 + 1}}{\dif u = \dfrac{x \dif x}{\sqrt{x^2 + 1}}}{v = x}{\dif v = \dif x} =>(*) = x \ \sqrt{x^2 + 1} - \int \dfrac{x^2 \dif x}{\sqrt{x^2 + 1}} =\\= x \ \sqrt{x^2 + 1} - \int \dfrac{x^2 + 1}{\sqrt{x^2 + 1}} \dif x + \int \dfrac{\dif x}{\sqrt{x^2 + 1}} = x \ \sqrt{x^2 + 1} - \int \sqrt{x^2 + 1} \dif x + \int \dfrac{\dif x}{\sqrt{x^2 + 1}}\\\int \sqrt{x^2 + 1} \dif x = I => 2I = x \ \sqrt{x^2 + 1} + \int \dfrac{\dif x}{\sqrt{x^2 + 1}}\\\int \dfrac{\dif x}{\sqrt{x^2 + 1}} = (1)\\ \\\treplace{t = x + \sqrt{x^2 + 1}}{\dif t = 1 + \dfrac{x \dif x}{\sqrt{x^2 + 1}} = \dfrac{\sqrt{x^2 + 1} + x}{\sqrt{x^2 + 1}} \dif x = \dfrac{t \dif x}{\sqrt{x^2 + 1}}}{\dfrac{\dif x}{\sqrt{x^2 + 1}} = \dfrac{\dif t}t} => (1) = \int \dfrac{\dif t}t = \ln\left|t\right| + C = \ln\left|x + \sqrt{x^2 + 1}\right| + C =>\\ 2I = x \ \sqrt{x^2 + 1} + \ln\left|x + \sqrt{x^2 + 1}\right| + C => (*) = I = \dfrac x 2 \ \sqrt{x^2 + 1} + \dfrac 1 2 \ln\left|x + \sqrt{x^2 + 1}\right| + C 
+			\end{multline*}
+			
+		\section*{66. $\int e^{2x} \ \sin 3x \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = e^{2x}}{\dif u = 2 e^{2x} \dif x}{v = -\dfrac 1 3 \cos 3x}{\dif v = \sin 3x \dif x} => (*) = -\dfrac 1 3 e^{2x} \ \cos 3x - \int -\dfrac 2 3 e^{2x} \ \cos 3x \dif x =\\= -\dfrac 1 3 e^{2x} \ \cos 3x + \dfrac 2 3 \int e^{2x} \ \cos 3x \dif x\\\freplace{u = e^{2x}}{\dif u = 2 e^{2x} \dif x}{v = \dfrac 1 3 \sin 3x}{\dif v = \cos 3x \dif x} =>\\ (*) =  -\dfrac 1 3 e^{2x} \ \cos 3x + \dfrac 2 3 \left(\dfrac 1 3 e^{2x} \ \sin 3x - \dfrac 2 3 \int e^{2x} \ \sin 3x \dif x\right) =\\= -\dfrac 1 3 e^{2x} \ \cos 3x + \dfrac 2 9 e^{2x} \ \sin 3x - \dfrac 4 9 \int e^{2x} \ \sin 3x \dif x\\\int e^{2x} \ \sin 3x \dif x = I =>\\ I = -\dfrac 1 3 e^{2x} \ \cos 3x + \dfrac 2 9 e^{2x} \ \sin 3x - \dfrac 4 9 I\\\dfrac{13}9 I = -\dfrac 1 3 e^{2x} \left(\dfrac 2 3 \sin 3x - cos 3x\right) + C\\(*) = I = \dfrac 3{13} e^{2x} \left(\dfrac 2 3 \sin 3x - cos 3x\right) + C
+			\end{multline*}
+			
+		\section*{67. $\int \dfrac{3x - 1}{x^2 + 9} \dif x = (*)$}
+			\begin{multline*}
+				(*) = 3\dfrac{x \dif x}{x^2 + 9} - \int \dfrac{\dif x}{x^2 + 9} = \dfrac 3 2 \int \dfrac{\dif \left(x^2 + 9\right)}{x^2 + 9} - \int \dfrac{\dif x}{x^2 + 3^2} = \dfrac 3 2 \ln\left|x^2 + 9\right| - \dfrac 1 3 \arctan{\left(\dfrac x 3\right)} + C
+			\end{multline*}
+			
+		\section*{68. $\int \dfrac{\dif x}{x^4 + 2 x^2 + 1} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{4x^3 + 4x - 4x^3 - 4x + 1}{\left(x^2 + 1\right)^2} \dif x = \int \dfrac{\dif \left(x^4 + 2 x^2 + 1\right)}{x^4 + 2 x^2 + 1} - \int \dfrac{4x^3 + 4x - 1}{x^4 + 2 x^2 + 1} \dif x = \ln\left|x^4 + 2 x^2 + 1\right| - \int \dfrac{4x^3 + 4x - 1}{\left(x^2 + 1\right)^2} \dif x \\\textrm{Разложим подынтегральное выражение на простые слагаемые: }\\ \int \dfrac{4x^3 + 4x - 1}{\left(x^2 + 1\right)^2}dx = \dfrac{Ax + B}{x^2 + 1} + \dfrac{Cx + D}{\left(x^2 + 1\right)^2}\\\left(Ax + B\right)\left(x^2 + 1\right) + Cx + D = 4x^3 + 4x - 1\\Ax^3 + Ax + Bx^2 + B + Cx + D = 4x^3 + 4x - 1\\
+				\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & -1 = B + D \\ t^1 & 4 = A + C \\ t^2 & 0 = B \\ t^3 & 4 = A\end{array} => A = 4, \ B = 0, \ C = 0, \ D = -1 \\ \\(*) = \ln\left|x^4 + 2 x^2 + 1\right| - \int \dfrac{4x \dif x}{x^2 + 1} + \int \dfrac{\dif x}{\left(x^2 + 1\right)^2}\\ \int \dfrac{4x \dif x}{x^2 + 1} = (1)\\\dreplace{t = x^2 + 1}{\dif t = 2x \dif x} => (1) = 2\int \dfrac{\dif t}{t} = 2 \ln\left|t\right| + C = 2 \ln\left|x^2 + 1\right| + C\\\int \dfrac{\dif x}{\left(x^2 + 1\right)^2} = (2)\\\freplace{u = \dfrac 1 x}{\dif u = -\dfrac{\dif x}{x^2}}{\dif v = \dfrac{x \dif x}{\left(x^2 + 1\right)^2}}{v = -\dfrac 1{2\left(x^2 + 1\right)}} =>\\ (2) = -\dfrac 1{2x\left(x^2 + 1\right)} - \dfrac 1 2 \int \dfrac{\dif x}{x^2\left(x^2 + 1\right)}\\\dfrac 1{x^2\left(x^2 + 1\right)} = \dfrac A x + \dfrac B{x^2} + \dfrac{Cx + D}{x^2 + 1} =>\\A(x^3 + x) + B(x^2 + 1) + Cx^3 + Dx^2 = 1 => A = 0, \ B = 1, \ C = 0,\ D = -1 =>\\(2) = -\dfrac 1{2x\left(x^2 + 1\right)} - \dfrac 1 2 \int \left(\dfrac 1{x^2} -\dfrac 1{x^2 + 1}\right) \dif x = -\dfrac 1{2x\left(x^2 + 1\right)} + \dfrac 1{2x} + \dfrac 1 2 \arctan x + C =>\\ (*) = \ln\left|x^4 + 2 x^2 + 1\right| - (1) + (2) = \ln\left|x^4 + 2 x^2 + 1\right| - 2 \ln\left|x^2 + 1\right| -\dfrac 1{2x\left(x^2 + 1\right)} + \dfrac 1{2x} + \dfrac 1 2 \arctan x + C =\\= \dfrac x 2 + \dfrac 1 2 \arctan x + C 
+			\end{multline*}
+		
+		\section*{69. \ $\int \ln^2 x \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = \ln^2 x}{\dif u = \dfrac{2 \ \ln x}{x} \dif x}{v = x}{\dif v = \dif x} => (*) = x \ \ln^2 x - 2 \int \ln x \dif x\\\freplace{u = \ln x}{\dif u = \dfrac{\dif x}x}{v = x}{\dif v = \dif x} => (*) = x \ \ln^2 x - 2\left(x\ \ln x - \int dx\right) = x \ \ln^2 x - 2x\ \ln x + 2x + C
+			\end{multline*}
+			
+		\section*{70. \ $\int \dfrac{x^2}{\left(x^2 + 1\right)^2} \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = x}{\dif u = \dif x}{v = -\dfrac 1 2 \left(\dfrac 1{x^2 + 1}\right)}{\dif v = \dfrac{x}{\left(x^2 + 1\right)^2} \dif x} =>\\ (*) = -\dfrac 1 2 \left(\dfrac{x}{x^2 + 1}\right) -\dfrac 1 2 \int \dfrac{\dif x}{x^2 + 1} = -\dfrac 1 2 \left(\dfrac{x}{x^2 + 1} + \arctan x\right) + C
+			\end{multline*}
+			
+		\section*{71. \ $\int \dfrac{x^3}{\sqrt{x - 1}} \dif x = (*)$}
+			\begin{multline*}
+				\treplace{t = \sqrt{x - 1}, \ x = t^2 + 1}{\dif t = \dfrac{\dif x}{2 \sqrt{x - 1}}}{\dfrac{\dif x}{\sqrt{x - 1}} = 2 \dif t} => (*) = \dfrac 1 2 \int \left(t^2 + 1\right)^3 \dif t = \dfrac 1 2 \int \left(t^6 + 3t^4 + 3t^2 + 1\right) \dif t =\\= \dfrac 1 2 \left(\int t^6 \dif t + 3 \int t^4 \dif t + 3 \int t^2 \dif t + \int \dif t\right) = \dfrac{t^7}{14} + \dfrac{3 t^5}{10} + \dfrac{t^3}{2} + \dfrac{t}{2} + C =\\= \dfrac 1{14} \sqrt{\left(x - 1\right)^7} + \dfrac 3{10} \sqrt{\left(x - 1\right)^5} + \dfrac 1 2 \sqrt{\left(x - 1\right)^3} + \dfrac 1 2 \sqrt{x - 1} + C
+			\end{multline*}
+			
+		\section*{72. \ $\int \dfrac{\dif x}{x \ \sqrt{1 + x}}$}
+			\begin{multline*}
+				\treplace{t = \sqrt{1 + x}, \ x = t^2 - 1}{\dif t = \dfrac{\dif x}{2 \sqrt{1 + x}}}{\dfrac{\dif x}{\sqrt{1 + x}} = 2 \dif t} => (*) = \dfrac 1 2 \int \dfrac{\dif t}{t^2 - 1} = \dfrac 1 2 \int \dfrac{\dif t}{\left(t + 1\right)\left(t - 1\right)} =\\= \dfrac 1 2 \int \left( -\dfrac 1{2\left(t + 1\right)} + \dfrac 1{2\left(t - 1\right)}\right) \dif t = \dfrac 1 4 \int \dfrac{\dif t}{t - 1} - \dfrac 1 4 \int \dfrac{\dif t}{t + 1} =\\= \dfrac 1 4 \ln \left|t - 1\right| - \dfrac 1 4 \ln \left|t + 1\right| + C = \dfrac 1 4 \ln \left|\sqrt{1 + x} - 1\right| - \dfrac 1 4 \ln \left|\sqrt{1 + x} + 1\right| + C = \dfrac 1 4 \ln \left|\dfrac{\sqrt{1 + x} - 1}{\sqrt{1 + x} + 1}\right| + C
+			\end{multline*}
+			
+		\section*{73. \ $\int \dfrac{\dif x}{1 + \sqrt x} = (*)$}
+			\begin{multline*}
+				\treplace{t = 1 + \sqrt x, \ \sqrt x = t - 1}{\dif t = \dfrac{\dif x}{2 \sqrt x}}{\dif x = 2 \sqrt x \dif x} => (*) = \int \dfrac{2\left(t - 1\right)}t \dif t = 2 \int \dif t - 2 \int \dfrac{\dif t}t = 2t - 2\ln\left|t\right| + C =\\= 2 + 2\sqrt x - 2\ln\left|1 + \sqrt x\right| + C
+			\end{multline*}
+			
+		\section*{74. \ $\int \dfrac{\dif x}{\sqrt x + \sqrt[3] x} = (*)$}
+			\begin{multline*}
+				\dreplace{x = t^6, \ t = \sqrt[6] x}{\dif x = 6 t^5 \dif t} => (*) = 6 \int \dfrac{t^5}{t^3 + t^2} \dif t = 6 \int \dfrac{t^5}{t^2 \left(t + 1\right)} \dif t = 6 \int \dfrac{t^3}{t + 1} \dif t = 6 \int \left(t^2 - t + 1 - \dfrac 1{t + 1}\right) \dif t =\\= 6 \left(\int t^2 \dif t - \int t \dif t + \int \dif t - \int \dfrac{\dif t}{t + 1}\right) = 2 t^3 - 3 t^2 + 6 t - 6 \ln \left|t + 1\right| + C =\\= 2 \sqrt x - 3 \sqrt[3] x + 6 \sqrt[6] x - 6 \ln \left|\sqrt[6] x + 1\right| + C
+			\end{multline*}
+			
+		\section*{75. \ $\int \dfrac{x^2}{x + 1} \dif x = (*)$}
+			\begin{multline*}
+				\dreplace{t = x + 1, \ x^2 = \left(t - 1\right)^2}{\dif t = \dif x} => (*) = \dfrac{\left(t - 1\right)^2}t \dif t = \int \dfrac{t^2 - 2 t + 1}t \dif t = \int \left(t - 2 + \dfrac 1 t\right) \dif t =\\= \int t \dif t - 2 \int \dif t + \int \dfrac{\dif t}t = \dfrac 1 2 t^2 - 2 t + \ln\left|t\right| + C = \dfrac 1 2 {\left(x + 1\right)}^2 - 2 \left(x + 1\right) + \ln\left|x + 1\right| + C
+			\end{multline*}
+			
+		\section*{76. \ $\int \dfrac{3 - 4x}{2 x^2 - 3 x + 1} \dif x = (*)$}
+			\begin{multline*}
+				\dreplace{t = 2 x^2 - 3 x + 1}{\dif t = \left(4x - 3\right) \dif x} => (*) = - \int \dfrac{\dif t}t = -\ln\left|t\right| + C = -\ln\left|2 x^2 - 3 x + 1\right| + C
+			\end{multline*}
+			
+		\section*{77. \ $\int \dfrac{x - 3}{\sqrt{3 - 2x - x^2}}\dif x = (*)$}
+			\begin{multline*}
+				(*) = - \dfrac 1 2 \int \dfrac{-2 -2x}{\sqrt{3 - 2x - x^2}} \dif x + \int \dfrac{-4}{\sqrt{3 - 2x - x^2}} \dif x = \int \dfrac{1 + x}{\sqrt{3 - 2x - x^2}} \dif x -4 \int \dfrac{\dif x}{\sqrt{4 - \left(x + 1\right)^2}} =\\= \int \dfrac{1 + x}{\sqrt{3 - 2x - x^2}} \dif x + 4 \arccos{\left(\dfrac{x + 1}2\right)}\\\dreplace{t = 3 - 2x - x^2}{dt = \left(-2 -2x\right) \dif x} => (*) = 4 \arccos{\left(\dfrac{x + 1}2\right)} + \int -\dfrac {\dif t}{2\sqrt t} =\\=  4 \arccos{\left(\dfrac{x + 1}2\right)} - \sqrt t + C = 4 \arccos{\left(\dfrac{x + 1}2\right)} - \sqrt{3 - 2x - x^2} + C 
+			\end{multline*}
+			
+		\section*{78. \ $\int \dfrac{\dif x}{\sqrt{9x^2 - 6x + 2}} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{\sqrt{(3x)^2 - 2 * 3x + 1 + 1}} = \int \dfrac{\dif x}{\sqrt{\left(3x + 1\right)^2 + 1}} = \dfrac 1 3 \ln\left|(3x + 1) + \sqrt{(3x + 1)^2 + 1}\right| + C
+			\end{multline*}
+		
+		\section*{79. \ $\int \dfrac{\sqrt x \dif x}{\sqrt{2x + 3}} = (*)$}
+			\begin{multline*}
+				\dreplace{t = \sqrt x, \ x = t^2}{\dif x = 2t \dif t} => (*) = \int \dfrac{2t^2 \dif t}{\sqrt{2t^2 + 3}} = \int \dfrac{2t^2 + 3}{\sqrt{2t^2 + 3}} \dif t - 3\int \dfrac{\dif t}{\sqrt{2t^2 + 3}} =\\= \int \sqrt{2t^2 + 3} \dif t - 3\ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right|\\I = \int \sqrt{2t^2 + 3} \dif t\\\freplace{u = \sqrt{2t^2 + 3}}{\dif u = \dfrac{2t \dif t}{\sqrt{2t^2 + 3}}}{v = t}{\dif v = \dif t} => I = t\sqrt{2t^2 + 3} - \int \dfrac{2t^2 \dif t}{\sqrt{2t^2 + 3}} =\\= t\sqrt{2t^2 + 3} - \int \dfrac{2t^2 + 3}{\sqrt{2t^2 + 3}} \dif t + 3\int \dfrac{\dif t}{\sqrt{2t^2 + 3}}= t\sqrt{2t^2 + 3} - \int \sqrt{2t^2 + 3} \dif t + \ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| + C =>\\ 2I = t\sqrt{2t^2 + 3} + \ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| + C\\I = \dfrac 1 2 \left(t\sqrt{2t^2 + 3} + \ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right|\right) + C=>\\(*) = I - 3\ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| =\\= \dfrac 1 2 \left(t\sqrt{2t^2 + 3} + \ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| \right) - 3\ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| + C = \dfrac 1 2 \left(t\sqrt{2t^2 + 3} -5 \ln\left|\sqrt 2 t + \sqrt{2t^2 + 3}\right| \right) + C
+			\end{multline*}
+			
+		\section*{80. \ $\int \dfrac{\dif x}{x^4 + x^2 + 1} = (*)$}
+			\begin{multline*}
+				\textrm{Разложим подынтегральное выражение на простые слагаемые: }\\ \dfrac 1{x^4 + x^2 + 1} = \dfrac 1{\left(x^2 - x + 1\right)\left(x^2 + x + 1\right)} = \dfrac{Ax + B}{x^2 - x + 1} + \dfrac{Cx + D}{x^2 + x + 1} =>\\A\left(x^3 + x^2 + x\right) + B\left(x^2 + x + 1\right) + C\left(x^3 - x^2 + x\right) + D\left(x^2 - x + 1\right) = 1\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = B + D \\ t^1 & 0 = A + B + C - D \\ t^2 & 0 = A + B - C + D \\ t^3 & 0 = A + C\end{array} => A = -\dfrac 1 2, \ B = \dfrac 1 2, \ C = \dfrac 1 2, \ D = -\dfrac 1 2\\\\  \dfrac 1{x^4 + x^2 + 1} = -\dfrac 1 2 \dfrac{x - 1}{x^2 - x + 1} \dif x + \dfrac 1 2 \dfrac{x + 1}{x^2 + x + 1} \dif x => (*) = -\dfrac 1 2 \int \dfrac{x - 1}{x^2 - x + 1} \dif x + \dfrac 1 2 \int \dfrac{x + 1}{x^2 + x + 1} \dif x =\\= -\dfrac 1 4 \int \dfrac{2x - 2}{x^2 - x + 1} \dif x + \dfrac 1 4 \int \dfrac{2x + 2}{x^2 + x + 1} \dif x =\\= -\dfrac 1 4 \left(\int \dfrac{\dif{\left(x^2 - x + 1\right)}}{x^2 - x + 1} - \int \dfrac{\dif x}{x^2 - x + 1} \right) + \dfrac 1 4 \left(\int \dfrac{\dif{\left(x^2 + x + 1\right)}}{x^2 + x + 1} + \int \dfrac{\dif x}{x^2 + x + 1}\right) =\\=-\dfrac 1 4 \ln\left|x^2 - x + 1\right| + \dfrac 1 4 \ln\left|x^2 + x + 1\right| + \dfrac 1 4\left(\int \dfrac{\dif x}{\left(x + \dfrac 1 2\right)^2 + \left(\dfrac{\sqrt 3}2\right)^2} + \int \dfrac{\dif x}{\left(x - \dfrac 1 2\right)^2 + \left(\dfrac{\sqrt 3}2\right)^2}\right) =\\= \dfrac 1 4 \ln\left|\dfrac{x^2 + x + 1}{x^2 - x + 1}\right| + \dfrac 1 4 \dfrac 2{\sqrt 3}\left(\arctan{\dfrac 2{\sqrt 3}\left(x + \dfrac 1 2\right)} + \arctan{\dfrac 2{\sqrt 3} \left(x - \dfrac 1 2\right)}\right) + C =\\= \dfrac 1 4 \ln\left|\dfrac{x^2 + x + 1}{x^2 - x + 1}\right| + \dfrac 1{2 \sqrt 3}\left(\arctan{\dfrac 2{\sqrt 3}\left(x + \dfrac 1 2\right)} + \arctan{\dfrac 2{\sqrt 3} \left(x - \dfrac 1 2\right)}\right) + C
+			\end{multline*}
+		
+		\section*{81. \ $\int \dfrac{\sqrt x}{1 - \sqrt x} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\sqrt x \left(1 + \sqrt x\right)}{1 - x} \dif x\\\treplace{t = 1 + \sqrt x, \ \sqrt x = t - 1}{\dif t = \dfrac{\dif x}{2 \sqrt x}}{\dif x = 2 \sqrt x \dif t = 2\left(t - 1\right) \dif t} => (*) = 2 \int \dfrac{t \left(t - 1\right)^2 \dif t}{1 - \left(t - 1\right)^2} =\\= 2 \int \dfrac{t \left(t - 1\right)^2 \dif t}{1 - t^2 + 2t - 1} = 2 \int \dfrac{t \left(t - 1\right)^2 \dif t}{t \left(2 - t\right)} = -2 \int \dfrac{\left(t - 1\right)^2 \dif t}{t - 2} = -2 \int \dfrac{t^2 - 2t + 1}{t - 2} =\\= -2 \int t \dif t -2 \int \dfrac{\dif t}{t - 2} = -t^2 - 2\ln\left|t - 2\right| + C = -\left(1 + \sqrt x\right)^2 - 2\ln\left|\sqrt x - 1\right| + C
+			\end{multline*}
+			
+		\section*{82. \ $\int \dfrac{\dif x}{x\left(x^2 + 1\right)} = (*)$}
+			\begin{multline*}
+				\textrm{Разложим подынтегральное выражение на простые слагаемые: }\\ \dfrac 1{x\left(x^2 + 1\right)} = \dfrac A x + \dfrac{Bx + C}{x^2 + 1} =>\\A\left(x^2 + 1\right) + Bx^2 + Cx = 1\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = A \\ t^1 & 0 = C \\ t^2 & 0 = A + B\end{array} => A = 1, \ B = -1, \ C = 0\\\dfrac 1{x\left(x^2 + 1\right)} = \dfrac 1 x - \dfrac x{x^2 + 1} => (*) = \int \dfrac{\dif x}x - \int \dfrac x{x^2 + 1} \dif x =\\= \int \dfrac{\dif x}x - \dfrac 1 2 \int \dfrac {\dif{\left(x^2 + 1\right)}}{x^2 + 1} = \ln\left|x\right| - \dfrac 1 2 \ln\left|x^2 + 1\right| + C = \ln\left|\dfrac{x}{\sqrt{x^2 + 1}}\right| + C
+			\end{multline*}
+			
+		\section*{83. $\int \sqrt{\dfrac{2x - 1}{2x + 3}} \dif x = (*)$}
+			\begin{multline*}
+				\dreplace{t = 2x + 3, \ 2 x - 1 = t - 4}{\dif t = 2 \dif x} => (*) = \dfrac 1 2 \int \sqrt{\dfrac{t - 4}t} \dif t\\\freplace{u = \sqrt{\dfrac{t - 4}t}}{\dif u = 2\dfrac{\dif t}{t^2 \sqrt{\dfrac{t - 4}t}}}{v = t}{\dif v = \dif t} => (*) = t\sqrt{\dfrac{t - 4}t} - 2\int t \dfrac{\dif t}{t^2 \sqrt{\dfrac{t - 4}t}} =\\= t\sqrt{\dfrac{t - 4}t} - 2\int \dfrac{\dif t}{t \sqrt{\dfrac{t - 4}t}} = \sqrt{t\left(t - 4\right)} - 2\int \dfrac{\dif t}{\sqrt{t\left(t - 4\right)}}\\\dreplace{k = \sqrt t}{\dif k = \dfrac{\dif t}{2 \sqrt t}} => (*) = \sqrt{t\left(t - 4\right)} - \int \dfrac{\dif k}{\sqrt{k^2 - 4}} = \sqrt{t\left(t - 4\right)} -\arcsin{\dfrac k 2} + C = \sqrt{t\left(t - 4\right)} - \arcsin{\dfrac{\sqrt t}2} + C =\\= \sqrt{\left(2x + 3\right)\left(2x - 1\right)} - \arcsin{\dfrac{\sqrt{2x + 3}}2} + C
+			\end{multline*}
+			
+		\section*{84. \ $\int \dfrac{\dif x}{x^3 - 1} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dif x}{\left(x - 1\right)\left(x^2 + x + 1\right)} = \int \left(\dfrac A{x - 1} + \dfrac{Bx + C}{x^2 + x + 1}\right) \dif x =>\\\\1 = A\left(x^2 + x + 1\right) + B\left(x^2 - x\right) + C\left(x - 1\right)\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = A + C \\ t^1 & 0 = A - B + C \\ t^2 & 0 = A + B\end{array} => A = \dfrac 1 3, \ B = -\dfrac 1 3, \ C = -\dfrac 2 3\\\\(*) = \dfrac 1 3 \int \dfrac{\dif x}{x - 1} -\dfrac 1 3 \int \dfrac{x + 2}{x^2 + x + 1} \dif x = \dfrac 1 3 \ln\left|x - 1\right| - \dfrac 1 3 \int \dfrac{x - 2}{x^2 + x + 1} \dif x =\\= \dfrac 1 3 \ln\left|x - 1\right| - \dfrac 1 6 \int \dfrac{\dif{\left(x^2 + x + 1\right)}}{x^2 + x + 1} + \dfrac 5 6 \int \dfrac{\dif x}{x^2 + x + 1} =\\= \dfrac 1 3 \ln\left|x - 1\right| - \dfrac 1 6 \ln\left|x^2 + x + 1\right| + \dfrac 5 6 \int \dfrac{\dif x}{\left(x + \dfrac 1 2\right)^2 + \left(\dfrac{\sqrt 3}2\right)^2} =\\= \dfrac 1 3 \ln\left|x - 1\right| - \dfrac 1 6 \ln\left|x^2 + x + 1\right| + \dfrac 5 6 \dfrac 2{\sqrt{3}} \arctan{\dfrac{2}{\sqrt 3}\left(x + \dfrac 1 2\right)} + C =\\= \dfrac 1 3 \ln\left|\dfrac{x - 1}{\sqrt{x^2 + x + 1}}\right| + \dfrac 5{3\sqrt{3}} \arctan{\dfrac{2}{\sqrt 3}\left(x + \dfrac 1 2\right)} + C =\\= \dfrac 1 6 \ln\left|1 + \dfrac{x}{x^2 + x + 1}\right| + \dfrac 5{3\sqrt{3}} \arctan{\dfrac{2}{\sqrt 3}\left(x + \dfrac 1 2\right)} + C
+			\end{multline*}
+			
+		\section*{85. \ $\int \dfrac{\dif x}{x^2 \left(x^2 + 1\right)} = (*)$}
+			\begin{multline*}
+				(*) = \int \left(\dfrac A x + \dfrac B{x^2} + \dfrac{Cx + D}{x^2 + 1}\right) \dif x =>\ \ 1 = A\left(x^3 + x\right) + B\left(x^2 + 1\right) + Cx^3 + Dx^2\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = B \\ t^1 & 0 = A \\ t^2 & 0 = B + D \\ t^3 & 0 = A + C\end{array} => A = 0, \ B = 1, \ C = 0, \ D = -1\\(*) = \int \left(\dfrac 1{x^2} - \dfrac 1{x^2 + 1}\right) \dif x = \int \dfrac{\dif x}{x^2} - \int \dfrac{\dif x}{x^2 + 1} = -\dfrac 1 x - \arctan{\left(x\right)} + C
+			\end{multline*}
+			
+		\section*{86. \ $\int \dfrac{\dif x}{\left(x + 1\right)^2\left(x^2 + 1\right)} = (*)$}
+			\begin{multline*}
+				(*) = \int\left(\dfrac A{x + 1} + \dfrac B{\left(x + 1\right)^2} + \dfrac{Cx + D}{x^2 + 1}\right) =>\\1 = A\left(x + 1\right)\left(x^2 + 1\right) + B\left(x^2 + 1\right) + Cx\left(x + 1\right)^2 + D\left(x + 1\right)^2 =\\=A\left(x^3 + x^2 + x + 1\right) + B\left(x^2 + 1\right) + C\left(x^3 + 2x^2 + x\right) + D\left(x^2 + 2x + 1\right)\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 1 = A + B + D \\ t^1 & 0 = A + C + 2D \\ t^2 & 0 = A + B + 2C + D \\ t^3 & 0 = A\end{array} => A = 0, \ B = \dfrac 3 4, \ C = -\dfrac 1 2, \ D = \dfrac 1 4\\(*) = \int\left(\dfrac 3{4\left(x + 1\right)^2} -\dfrac 1 4 \left(\dfrac{2x - 1}{x^2 + 1}\right)\right) \dif x = \dfrac 3 4 \int \dfrac{\dif{\left(x + 1\right)}}{\left(x + 1\right)^2} - \dfrac 1 4 \left(\int \dfrac{\dif{\left(x^2 + 1\right)}}{x^2 + 1} - \int \dfrac{\dif x}{x^2 + 1}\right) =\\= \dfrac 1 4 \left(-\dfrac{3}{x + 1} - \ln\left(x^2 + 1\right) + \arctan{\left(x\right)}\right) + C
+			\end{multline*}
+			
+		\section*{87. \ $\int \dfrac{x^3 - 6}{x^4 + 6x^2 + 8} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x^3 - 6}{\left(x^2 + 2\right)\left(x^2 + 4\right)} \dif x = \int \left(\dfrac{Ax + B}{x^2 + 2} + \dfrac{Cx + D}{x^2 + 4}\right) \dif x =>\\x^3 - 6 = \left(Ax + B\right)\left(x^2 + 4\right) + \left(Cx + D\right)\left(x^2 + 2\right) =\\= A\left(x^3 + 4x\right) + B\left(x^2 + 4\right) + C\left(x^3 + 2x\right) + D\left(x^2 + 2\right) \\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & -6 = 4B + 2D \\ t^1 & 0 = 4A + 2C \\ t^2 & 0 = B + D \\ t^3 & 1 = A + C\end{array} => A = -1, \ B = -3, \ C = 2, \ D = 3\\(*) = \int \dfrac{-x -3}{x^2 + 2} \dif x + \int \dfrac{2x + 3}{x^2 + 4} \dif x = -\dfrac 1 2 \int \dfrac{2x + 6}{x^2 + 2} \dif x + \int \dfrac{2x + 3}{x^2 + 4} \dif x =\\= -\dfrac 1 2 \int \dfrac{\dif{\left(x^2 + 2\right)}}{x^2 + 2} - 3\int\dfrac{\dif x}{x^2 + \left(\sqrt 2\right)^2} + \int \dfrac{\dif{\left(x^2 + 4\right)}}{x^2 + 4} + 3\int\dfrac{\dif x}{x^2 + 2^2} =\\= - \dfrac 1 2 \ln\left(x^2 + 2\right) + \ln\left(x^2 + 4\right) - \dfrac{3}{\sqrt 2} \arctan{\left(x\right)}+ \dfrac 3 2 \arctan{\left(x\right)} + C =\\= \ln\left(\dfrac{x^2 + 4}{\sqrt{x^2 + 2}}\right) + \dfrac{3}{\sqrt 2} \left(1 - \dfrac 1{\sqrt 2}\right) \arctan{\left(x\right)} + C 
+			\end{multline*}
+			
+		\section*{88. \ $\int \dfrac{x^3}{\left(x^2 - 1\right)^2} \dif x = (*)$}
+			\begin{multline*}
+				\freplace{u = x^2}{\dif u = 2 x \dif x}{v = -\dfrac 1{2\left(x^2 - 1\right)}}{\dif v = \dfrac{x \dif x}{\left(x^2 - 1\right)^2}} => (*) = -\dfrac{x^2}{2\left(x^2 - 1\right)} + \int \dfrac{x \dif x}{x^2 - 1} =\\= -\dfrac{x^2}{2\left(x^2 - 1\right)} + \dfrac 1 2 \int \dfrac{\dif{\left(x^2 - 1\right)}}{x^2 - 1} = -\dfrac{x^2}{2\left(x^2 - 1\right)} + \dfrac 1 2 \ln\left|x^2 - 1\right| + C = \dfrac 1 2 \left(\ln\left|x^2 - 1\right| +\dfrac{x^2}{1 - x^2}\right)+ C
+			\end{multline*}
+			
+		\section*{89. \ $\int \dfrac{x^5 \dif x}{\left(x^2 - 1\right)\left(x - 1\right)^2} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x^5 \dif x}{\left(x + 1\right)\left(x - 1\right)^3} => (*) = \int \left(x + 2\right) \dif x + \int \dfrac{4x^3 - 2x^2 -3x + 2}{\left(x + 1\right)\left(x - 1\right)^3} \dif x = \dfrac{\left(x + 2\right)^2}2 + \int \dfrac{4x^3 - 2x^2 -3x + 2}{\left(x + 1\right)\left(x - 1\right)^3} \dif x\\\int \dfrac{4x^3 - 2x^2 -3x + 2}{\left(x + 1\right)\left(x - 1\right)^3} \dif x = (1)\\(1) = \int \left(\dfrac{A}{x - 1} + \dfrac{B}{\left(x - 1\right)^2} + \dfrac{C}{\left(x - 1\right)^3} + \dfrac{D}{x + 1}\right) =>\\A\left(x - 1\right)^2\left(x + 1\right) + B\left(x - 1\right)\left(x + 1\right) + C\left(x + 1\right) + D\left(x - 1\right)^3 = 4x^3 - 2x^2 - 3x + 2\\x + 1 = 0:\\ D\left(x^3 -3x^2 + 3x - 1\right) = 4x^3 - 2x^2 - 3x + 2 \\D\left(-1 -3 -3 -1\right) = -4 -2 +3 +2\\ -8D = -1 => D = \dfrac 1 8\\A\left(x - 1\right)^2\left(x + 1\right) + B\left(x - 1\right)\left(x + 1\right) + C\left(x + 1\right) = 4x^3 - 2x^2 - 3x + 2 - \dfrac 1 8 \left(x - 1\right)^3\\A\left(8x^3 - 8x^2 - 8x + 8\right) + B\left(8x^2 - 8\right) + C\left(8x + 8\right) = 31x^3 - 13x^2 - 27x + 17\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 17 = 8A -8B + 8C \\ t^1 & -27 = -8A + 8C \\ t^2 & -13 = -8A + 8B\\ t^3 & 31 = 8A\end{array} => A = \dfrac{31}8, \ B = \dfrac 9 4, \ C = \dfrac 1 2, \ D = \dfrac 1 8\\(1) = \dfrac{31}8 \int \dfrac{\dif x}{x - 1} +\dfrac 9 4 \int \dfrac{\dif x}{\left(x - 1\right)^2} +\dfrac 1 2 \int \dfrac{\dif x}{\left(x - 1\right)^3} + \dfrac 1 8 \int \dfrac{\dif x}{x + 1} =\\=\dfrac{31}8 \ln{\left|x - 1\right|} -\dfrac 9 {4\left(x - 1\right)} - \dfrac 1{\left(x - 1\right)^2} + \dfrac 1 8 \ln{\left|x + 1\right|} + C = \dfrac 1 8 \ln{\left|\left(x - 1\right)^{30}\left(x^2 - 1\right)\right|}-\dfrac{x + 3}{4\left(x - 1\right)^2} + C =>\\(*) = \dfrac 1 8 \ln{\left|\left(x - 1\right)^{30}\left(x^2 - 1\right)\right|}-\dfrac{x + 3}{4\left(x - 1\right)^2} + \dfrac{\left(x + 2\right)^2}2 + C
+			\end{multline*}
+			
+		\section*{90. \ $\int \dfrac{x^2 \dif x}{1 - x^4} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x^2 \dif x}{\left(1 - x^2\right)\left(1 + x^2\right)} = \int \dfrac{x^2 \dif x}{\left(1 - x\right)\left(1 + x\right)\left(1 + x^2\right)} = \int \left(\dfrac{A}{1 - x} + \dfrac{B}{1 + x} + \dfrac{Cx + D}{1 + x^2}\right) \dif x =>\\x^2 = A\left(1 + x\right)\left(1 + x^2\right) + B\left(1 - x\right)\left(1 + x^2\right) + \left(Cx + D\right)\left(1 - x^2\right) =\\= A\left(1 + x + x^2 + x^3\right) + B\left(1 - x + x^2 - x^3\right) + C\left(x - x^3\right) + D\left(1 - x^2\right)\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\ \begin{array}{l|l} t^0 & 0 = A +B + D \\ t^1 & 0 = A - B + C \\ t^2 & 1 = A + B - D\\ t^3 & 0 = A - B -C\end{array} => A = \dfrac 1 4, \ B = \dfrac 1 4, \ C = 0, \ D = -\dfrac 1 2\\(*) = \int \dfrac 1 4 \left(\dfrac 1{1 - x} + \dfrac 1{1 + x} - \dfrac 2{1 + x^2}\right) \dif x = -\dfrac 1 4 \ln\left|1 - x\right| + \dfrac 1 4 \ln\left|1 + x\right| - \dfrac 1 2 \int \dfrac{\dif x}{1 + x^2} =\dfrac 1 4 \ln\left|\dfrac{1 + x}{1 - x}\right| - \dfrac 1 2 \arctan\left(x\right) + C
+			\end{multline*}
+			
+		\section*{91. \ $\int \sqrt{1 - 4x - x^2} \dif x = (*)$}
+			\begin{multline*}
+				I = (*) = \int \sqrt{\left(\sqrt{5}\right)^2 - \left(x + 2\right)^2} \dif x\\\dreplace{t = x + 2}{dt = dx} => (*) = \int \sqrt{\left(\sqrt{5}\right)^2 - t^2} \dif x\\\freplace{u = \sqrt{\left(\sqrt{5}\right)^2 - t^2}}{\dif u = -\dfrac{t \dif t}{\sqrt{\left(\sqrt{5}\right)^2 - t^2}}}{v = t}{\dif v = \dif t} =>(*) = t \ \sqrt{\left(\sqrt{5}\right)^2 - t^2} + \int \dfrac{t^2 \dif t}{\sqrt{\left(\sqrt{5}\right)^2 - t^2}} =\\= t \ \sqrt{\left(\sqrt{5}\right)^2 - t^2} - \int \sqrt{\left(\sqrt{5}\right)^2 - t^2} \dif x + 5 \int \dfrac{\dif t}{\sqrt{\left(\sqrt{5}\right)^2 - t^2}}\\ 2I = t \ \sqrt{\left(\sqrt{5}\right)^2 - t^2} + 5 \int \dfrac{\dif t}{\sqrt{\left(\sqrt{5}\right)^2 - t^2}} =>\\ (*) = \dfrac 1 2 \left(t \ \sqrt{\left(\sqrt{5}\right)^2 - t^2} + 5 \int \dfrac{\dif t}{\sqrt{\left(\sqrt{5}\right)^2 - t^2}} \right) + C = \dfrac 1 2 \left(t \ \sqrt{\left(\sqrt{5}\right)^2 - t^2} + 5 \arcsin\dfrac{t}{\sqrt 5}\right) + C =\\= \dfrac 1 2 \left(\left(x + 2\right) \ \sqrt{1 - 4x - x^2} + 5 \arcsin\dfrac{x + 2}{\sqrt 5}\right) + C 
+			\end{multline*}
+			
+		\section*{92. \ $\int \sqrt{x^2 - 2x - 1} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \sqrt{x^2 - 2x + 1 - 2} \dif x = \int \sqrt{\left(x - 1\right)^2 - 2} \dif x\\\dreplace{t = x - 1}{\dif t = \dif x} => (*) = \int \sqrt{t^2 - 2} \dif x\\\\\freplace{u = \sqrt{t^2 - 2}}{\dif u = \dfrac{t \dif t}{\sqrt{t^2 - 2}}}{v = t}{\dif v = \dif t} =>(*) = t \ \sqrt{t^2 - 2} - \int \dfrac{t^2 \dif t}{\sqrt{t^2 - 2}} =\\= t \ \sqrt{t^2 - 2} - \int \sqrt{t^2 - 2} \dif x - 2\int \dfrac{\dif t}{\sqrt{t^2 - 2}} =>(*) = I = t \ \sqrt{t^2 - 2} - I - 2\int \dfrac{\dif t}{\sqrt{t^2 - 2}}\\2I = t \ \sqrt{t^2 - 2} - 2\int \dfrac{\dif t}{\sqrt{t^2 - 2}} => I = \dfrac 1 2 t \ \sqrt{t^2 - 2} - \ln\left|t + \sqrt{t^2 - 2}\right| + C =\\= \dfrac 1 2 \left(x - 1\right) \sqrt{x^2 - 2x - 1} - \ln\left|x - 1 + \sqrt{x^2 - 2x - 1}\right| + C 
+			\end{multline*}
+			
+		\section*{93. \ $\int \dfrac{\dif x}{2 \sin x + 3 \cos x} = (*)$}
+			\begin{multline*}
+				\dreplace{\tan\left(\dfrac x 2\right) = t}{dx = \dfrac{2 \dif t}{1 + t^2}} => (*) = \int \dfrac{\dfrac{2 \dif t}{1 + t^2}}{2\dfrac{2 t}{1 + t^2} + 3\dfrac{1 - t^2}{1 + t^2}} = \int \dfrac{2 \dif t}{4 t + 3(1 - t^2)} =\\= 2\int \dfrac{\dif t}{4t + 3 - 3t^2} = -2\int \dfrac{\dif t}{3t^2 - 4t - 3} = -2\int \dfrac{\dif t}{\left(t - \dfrac{2 - \sqrt{13}}{3}\right)\left(t - \dfrac{2 + \sqrt{13}}{3}\right)} =\\= -2\int \left(\dfrac{A}{\left(t - \dfrac{2 - \sqrt{13}}{3}\right)} + \dfrac{B}{\left(t - \dfrac{2 + \sqrt{13}}{3}\right)}\right) \dif t =>A\left(t - \dfrac{2 + \sqrt{13}}{3}\right) + B\left(t - \dfrac{2 - \sqrt{13}}{3}\right) = 1\\\textrm{Коэффициенты перед степенями t удовлетворяют следующим уравнениям:}\\A = -\dfrac{3}{\sqrt{13}}, \ B = \dfrac{3}{\sqrt{13}}\\(*) = \dfrac{6}{\sqrt{13}}\int \left(\dfrac 1{\left(t - \dfrac{2 - \sqrt{13}}{3}\right)} - \dfrac 1{\left(t - \dfrac{2 + \sqrt{13}}{3}\right)}\right) \dif t =\dfrac{6}{\sqrt{13}}\left(\int \dfrac {\dif t}{\left(t - \dfrac{2 - \sqrt{13}}{3}\right)} - \int \dfrac {\dif t}{\left(t - \dfrac{2 + \sqrt{13}}{3}\right)}\right) =\\= \dfrac{6}{\sqrt{13}}\left(\ln{\left|t - \dfrac{2 - \sqrt{13}}{3}\right|} - \ln{\left|t - \dfrac{2 + \sqrt{13}}{3}\right|}\right) + C = \dfrac{6}{\sqrt{13}}\ln\left|\dfrac{3t - 2 + \sqrt{13}}{3t - 2 - \sqrt{13}}\right| + C
+			\end{multline*}
+			
+		\section*{94. \ $\int \dfrac{\dif x}{x^2 \left(x  + \sqrt{x^2 + 1}\right)} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x  - \sqrt{x^2 + 1}}{x^2x^2 \left(x^2 - x^2 - 1\right) \dif x} = -\int \dfrac{x - \sqrt{x^2 + 1}}{x^2} \dif x = -\int \dfrac{\dif x}x + \int \dfrac{\sqrt{x^2 + 1}}{x^2} \dif x = -\ln\left|x\right| + \int \dfrac{\sqrt{x^2 + 1}}{x^2} \dif x\\\freplace{u = \sqrt{x^2 + 1}}{\dif u = \dfrac{x \dif x}{\sqrt{x^2 + 1}}}{v = -\dfrac 1 x}{dx = \dfrac{\dif x}{x^2}} => (*) = -\ln\left|x\right| -\dfrac{\sqrt{x^2 + 1}}{x} + \int \dfrac{x \dif x}{x \sqrt{x^2 + 1}} =\\= -\ln\left|x\right| -\dfrac{\sqrt{x^2 + 1}}{x} + \int \dfrac{\dif x}{\sqrt{x^2 + 1}} = -\ln\left|x\right| -\dfrac{\sqrt{x^2 + 1}}{x} + \ln\left|x + \sqrt{x^2 + 1}\right| + C = -\dfrac{\sqrt{x^2 + 1}}{x} + \ln\left|\dfrac{x + \sqrt{x^2 + 1}}{x}\right| + C =\\= \ln\left|1 + \sqrt{1 + \dfrac 1{x^2}}\right| -\sqrt{1 + \dfrac 1{x^2}} + C
+			\end{multline*}
+			
+		\section*{95. \ $\int \dfrac{x - \arctan^3 x}{1 + x^2} \dif x = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x \dif x}{1 + x^2} - \int \dfrac{\arctan^3 x}{1 + x^2} \dif x = \dfrac 1 2 \int \dfrac{\dif{\left(1 + x^2\right)}}{1 + x^2} - \int \arctan^3 x \dif{\left(\arctan x\right)} = \dfrac 1 2 \ln\left|1 + x^2\right| - \dfrac 1 4 \arctan^4 x + C
+			\end{multline*}
+			
+		\section*{97. \ $\int \dfrac{\dif x}{x - \sqrt{x^2 - 1}}= (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{x + \sqrt{x^2 - 1}}{x^2 - x^2 + 1} \dif x = \int \left(x + \sqrt{x^2 - 1}\right) \dif x = \int x \dif x + \int \sqrt{x^2 - 1} \dif x = \dfrac{x^2}2 + \int \sqrt{x^2 - 1} \dif x\\\freplace{u = \sqrt{x^2 - 1}}{\dif u = \dfrac{x \dif x}{\sqrt{x^2 - 1}}}{v = x}{\dif v = \dif x} => (*) = \dfrac{x^2}2 + x\sqrt{x^2 - 1} - \int \dfrac{x^2}{\sqrt{x^2 - 1}} \dif x =\\= \dfrac{x^2}2 + x\sqrt{x^2 - 1} - \int \dfrac{x^2 - 1}{\sqrt{x^2 - 1}} \dif x + \int \dfrac{\dif x}{\sqrt{x^2 - 1}} = \dfrac{x^2}2 + x\sqrt{x^2 - 1} - \int \sqrt{x^2 - 1} \dif x + \int \dfrac{\dif x}{\sqrt{x^2 - 1}}\\I = \int \sqrt{x^2 - 1} => 2I = x\sqrt{x^2 - 1} + \int \dfrac{\dif x}{\sqrt{x^2 - 1}}\\I = \dfrac x 2 \sqrt{x^2 - 1} + \ln\left|x + \sqrt{x^2 - 1}\right| + C =>\\ (*) = \dfrac{x^2}2 + I =\dfrac{x^2}2 + \dfrac x 2 \sqrt{x^2 - 1} + \ln\left|x + \sqrt{x^2 - 1}\right| + C
+			\end{multline*}
+			
+		\section*{98. \ $\int \dfrac{\sqrt{1 - x^2}}{x^2} = (*)$}
+			\begin{multline*}
+				\freplace{u = \sqrt{1 - x^2}}{\dif u = -\dfrac{x \dif x}{\sqrt{1 - x^2}}}{v = -\dfrac 1 x}{\dif v = \dfrac{\dif x}{x^2}} => (*) = -\dfrac{\sqrt{1 - x^2}}{x} + \int \dfrac{x \dif x}{x \sqrt{1 - x^2}} =\\= -\dfrac{\sqrt{1 - x^2}}{x} + \int \dfrac{\dif x}{\sqrt{1 - x^2}} = -\sqrt{\dfrac 1{x^2} - 1} - \arcsin x + C
+			\end{multline*}
+			
+		\section*{99. \ $\int \dfrac{\dif x}{\sqrt{\left(1 - x^2\right) \arccos x}} = (*)$}
+			\begin{multline*}
+				\dreplace{t = \arccos x}{\dif t = -\dfrac{\dif x}{\sqrt{1 - x^2}}} => (*) = -\int \dfrac{\dif t}{\sqrt t} = -2\sqrt t + C = -2\sqrt{\arccos x} + C
+			\end{multline*}
+			
+		\section*{100. \ $\int \dfrac{1 + x}{x\left(x + \ln x\right)} = (*)$}
+			\begin{multline*}
+				(*) = \int \dfrac{\dfrac 1 x + 1}{x + \ln x} \dif x = \int \dfrac{\dif{\left(x + \ln x\right)}}{x + \ln x} = \ln\left|x + \ln x\right| + C
+			\end{multline*}		
+\end{document} 
